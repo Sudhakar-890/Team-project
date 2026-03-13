@@ -7,9 +7,10 @@
   <title>Game Lobby</title>
 
   <!-- styles -->
+   <link rel="stylesheet" href="./styles/general.css">
   <link rel="stylesheet" href="./styles/game-lobby/header.css">
-  <!-- <link rel="stylesheet" href="./styles/game-lobby/main.css">
-  <link rel="stylesheet" href="./styles/game-lobby/footer.css"> -->
+  <link rel="stylesheet" href="./styles/game-lobby/main.css">
+  <link rel="stylesheet" href="./styles/game-lobby/footer.css">
 </head>
 
 <body>
@@ -34,13 +35,32 @@
       </div>
     </section>
   </header>
-
   <!-- main -->
   <main>
-    <section id="mainContainer">
-      
+    <section id="gameModeContainer">
+      <div class="computerMatch">
+        <img src="./assets/animated-logos/computer-match.png" alt="computer match">
+      </div>
+      <div class="localMatch">
+        <img src="./assets/animated-logos/local-match.png" alt="local-match">
+      </div>
     </section>
   </main>
+
+  <!-- floating pile footer -->
+   <footer>
+    <section id="pile">
+      <div class="gameLobby">
+        <h4>Lobby</h4>
+      </div>
+      <div class="themeBoard">
+        <h4>Themes</h4>
+      </div>
+      <div class="gameHistory">
+        <h4>History</h4>
+      </div>
+    </section>
+   </footer>
 </body>
 
 </html>
