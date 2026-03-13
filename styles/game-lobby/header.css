@@ -54,7 +54,7 @@ header{
     width:90%;
     position:absolute;
     left:12px;
-    bottom:-25px;
+    bottom:-18px;
     filter:saturate(150%) contrast(150%) drop-shadow(5px -5px 20px rgba(218, 213, 235, 0.692));
 }
 
