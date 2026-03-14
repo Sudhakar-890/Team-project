@@ -2,7 +2,7 @@ footer{
     width:100%;
     height:50px;
     position:fixed;
-    bottom:35px;
+    bottom:30px;
     left:0px;
 }
 
@@ -19,7 +19,7 @@ footer{
 }
 
 #pile div{
-    width:33%;
+    width:max-content;
     padding:10px 20px;
     box-shadow:inset -5px -5px 10px rgba(0,0,0,5),
     inset 5px 5px 10px rgba(250, 250, 250, 0.452),
