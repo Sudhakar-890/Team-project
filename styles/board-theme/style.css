@@ -199,7 +199,7 @@
     background-color:green;
 }
 .star{
-    background-image: url(assets);
+    background-image: url('../../assets/board-theme/star.svg');
 }
 .center{
     border-bottom: 38px solid green;
