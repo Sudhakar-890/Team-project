@@ -1,11 +1,181 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+
+    <!-- styles -->
+    <link rel="stylesheet" href="/styles/general.css">
+    <link rel="stylesheet" href="./styles/game-board/board.css">
+
 </head>
+
 <body>
-    section
+    <section id="board">
+        <!-- top -->
+        <div class="top">
+            <!-- 2nd quadrant -->
+            <div id="quadrant2" class="redBox">
+                <div class="box2">
+                    <div class="coin2 coinRed"></div>
+                    <div class="coin2 coinRed"></div>
+                    <div class="coin2 coinRed"></div>
+                    <div class="coin2 coinRed"></div>
+                </div>
+            </div>
+
+            <!-- top board -->
+            <div class="top-board">
+
+                <div class="q3-end"></div>
+                <div class="q3-end"></div>
+                <div class="q3-end safeBox"></div>
+                <div class="q3-end"></div>
+                <div class="q3-end"></div>
+                <div class="q3-end"></div>
+
+                <div class="q3-home q3-24"></div>
+                <div class="q3-home"></div>
+                <div class="q3-home"></div>
+                <div class="q3-home"></div>
+                <div class="q3-home"></div>
+                <div class="q3-home"></div>
+
+                <div class="q3-start"></div>
+                <div class="q3-start q3-origin safeBox"></div>
+                <div class="q3-start"></div>
+                <div class="q3-start"></div>
+                <div class="q3-start"></div>
+                <div class="q3-start"></div>
+
+            </div>
+
+            <!-- 3rd quadrant -->
+            <div id="quadrant3" class="blueBox">
+                <div class="box3">
+                    <div class="coin3 coinBlue"></div>
+                    <div class="coin3 coinBlue"></div>
+                    <div class="coin3 coinBlue"></div>
+                    <div class="coin3 coinBlue"></div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- middle -->
+        <div class="middle">
+
+            <!-- left -->
+            <div class="leftBoard">
+
+                <div class="q2-start"></div>
+                <div class="q2-start q2-origin safeBox"></div>
+                <div class="q2-start"></div>
+                <div class="q2-start"></div>
+                <div class="q2-start"></div>
+                <div class="q2-start"></div>
+
+                <div class="q2-home q2-12"></div>
+                <div class="q2-home"></div>
+                <div class="q2-home"></div>
+                <div class="q2-home"></div>
+                <div class="q2-home"></div>
+                <div class="q2-home"></div>
+
+                <div class="q2-end"></div>
+                <div class="q2-end"></div>
+                <div class="q2-end safeBox"></div>
+                <div class="q2-end"></div>
+                <div class="q2-end"></div>
+                <div class="q2-end"></div>
+
+            </div>
+            <!-- home -->
+            <div class="homeContainer">
+                <div class="q2-home-origin"></div>
+                <div class="q3-home-origin"></div>
+                <div class="q1-home-origin"></div>
+                <div class="q4-home-origin"></div>
+
+            </div>
+
+            <!-- right -->
+            <div class="rightBoard">
+
+                <div class="q4-end"></div>
+                <div class="q4-end"></div>
+                <div class="q4-end"></div>
+                <div class="q4-end safeBox"></div>
+                <div class="q4-end"></div>
+                <div class="q4-end"></div>
+
+                <div class="q4-home"></div>
+                <div class="q4-home"></div>
+                <div class="q4-home"></div>
+                <div class="q4-home"></div>
+                <div class="q4-home"></div>
+                <div class="q4-home q4-36"></div>
+
+                <div class="q4-start"></div>
+                <div class="q4-start"></div>
+                <div class="q4-start"></div>
+                <div class="q4-start"></div>
+                <div class="q4-start q4-origin safeBox"></div>
+                <div class="q4-start"></div>
+
+            </div>
+        </div>
+
+        <!-- top -->
+        <div class="bottom">
+            <!-- 1st quadrant -->
+            <div id="quadrant1" class="greenBox">
+                <div class="box1">
+                    <div class="coin1 coinGreen"></div>
+                    <div class="coin1 coinGreen"></div>
+                    <div class="coin1 coinGreen"></div>
+                    <div class="coin1 coinGreen"></div>
+                </div>
+            </div>
+
+            <!-- bottom board -->
+            <div class="bottom-board">
+
+                <div class="q1-start"></div>
+                <div class="q1-start"></div>
+                <div class="q1-start"></div>
+                <div class="q1-start"></div>
+                <div class="q1-start q1-origin safeBox"></div>
+                <div class="q1-start"></div>
+
+                <div class="q1-home"></div>
+                <div class="q1-home"></div>
+                <div class="q1-home"></div>
+                <div class="q1-home"></div>
+                <div class="q1-home"></div>
+                <div class="q1-home q1-51"></div>
+
+                <div class="q1-end"></div>
+                <div class="q1-end"></div>
+                <div class="q1-end"></div>
+                <div class="q1-end safeBox"></div>
+                <div class="q1-end"></div>
+                <div class="q1-end"></div>
+            </div>
+
+            <!-- 4rd quadrant -->
+            <div id="quadrant4" class="yellowBox">
+                <div class="box4">
+                    <div class="coin4 coinYellow"></div>
+                    <div class="coin4 coinYellow"></div>
+                    <div class="coin4 coinYellow"></div>
+                    <div class="coin4 coinYellow"></div>
+                </div>
+            </div>
+        </div>
+    </section>
 </body>
+
 </html>
