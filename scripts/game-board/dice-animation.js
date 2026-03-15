@@ -2,8 +2,8 @@
 let diceInit = 0;
 let playersDice = document.querySelectorAll('.player .diceSlot');
 
-let diceHTML = 
-    `
+let diceHTML =
+ `
     <div class="diceContainer">
         <div class="dice">
             <div class="face1">
@@ -31,73 +31,67 @@ let diceHTML =
 
 displayDice(diceInit);
 
-function displayDice(value){
-    if(value>=4){
-        diceInit = 0;
-    }
-    playersDice[diceInit].insertAdjacentHTML('afterbegin', diceHTML);
-    addDiceEvent();
+function displayDice(value) {
+ if (value >= 4) {
+  diceInit = 0;
+ }
+ playersDice[diceInit].insertAdjacentHTML('afterbegin', diceHTML);
+ addDiceEvent();
 }
 
 // dice roll
-
-function addDiceEvent(){
-    let currentX = 0;
-    let currentY = 0;
-    const dice = document.querySelector(".dice");
-    console.log(dice)
-    dice.addEventListener('click',rollDice)
-    function rollDice() {
-        document
-        const random = Math.floor(Math.random() * 6 + 1);
-        // const random = 4;
-        let x = 0;
-        let y = 0;
-
-        console.log(random);
-        switch (random) {
-            case 1:
-                break;
-
-            case 2:
-                y = -90;
-                break;
-
-            case 3:
-                y = 90;
-                break;
-
-            case 4:
-                x = 180;
-                break;
-
-            case 5:
-                x = -90;
-                break;
-
-            case 6:
-                x = 90;
-                break;
-        }
-
-        currentX += x + 720;
-        currentY += y + 720;
-        console.log(dice)
-        dice.style.transform = `rotateX(${currentX}deg) rotateY(${currentY}deg)`;
-        console.log('Rolling')
-        setTimeout(() => {
-            if (random!=6) {
-                playersDice[diceInit].innerHTML = '';
-                diceInit+=1;
-                console.log(diceInit+'from setTimeout')
-                displayDice(diceInit);
-                console.log('Rolling completed')
-            }
-
-            else{
-                addDiceEvent();
-            }
-        }, 2000)
-    }
+let currentX = 0;
+let currentY = 0;
+function addDiceEvent() {
+ const dice = document.querySelector(".dice");
+ 
+ dice.addEventListener('click', rollDice);
+ 
+ function rollDice() {
+  const random = Math.floor(Math.random() * 6 + 1);
+  // const random = 4;
+  let x = 0;
+  let y = 0;
+  
+  switch (random) {
+   case 1:
+    break;
+    
+   case 2:
+    y = -90;
+    break;
+    
+   case 3:
+    y = 90;
+    break;
+    
+   case 4:
+    x = 180;
+    break;
+    
+   case 5:
+    x = -90;
+    break;
+    
+   case 6:
+    x = 90;
+    break;
+  }
+  
+  currentX += x + 720;
+  currentY += y + 720;
+  
+  dice.style.transform = `rotateX(${currentX}deg) rotateY(${currentY}deg)`;
+  
+  setTimeout(() => {
+   if (random != 6){
+    currentX = 0
+    currentY = 0;
+    playersDice[diceInit].innerHTML = '';
+    diceInit += 1;
+    
+    displayDice(diceInit);
+   }
+  }, 1700)
+ }
 }
-
