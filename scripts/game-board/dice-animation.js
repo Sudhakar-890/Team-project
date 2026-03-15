@@ -1,5 +1,8 @@
+import {calculateMoves} from './game.js';
+
+
 // change the dice as per player wise
-let diceInit = 0;
+let diceIndex = 0;
 let playersDice = document.querySelectorAll('.player .diceSlot');
 
 let diceHTML =
@@ -29,13 +32,13 @@ let diceHTML =
 
     `;
 
-displayDice(diceInit);
+displayDice(diceIndex);
 
 function displayDice(value) {
  if (value >= 4) {
-  diceInit = 0;
+  diceIndex = 0;
  }
- playersDice[diceInit].insertAdjacentHTML('afterbegin', diceHTML);
+ playersDice[diceIndex].insertAdjacentHTML('afterbegin', diceHTML);
  addDiceEvent();
 }
 
@@ -48,8 +51,9 @@ function addDiceEvent() {
  dice.addEventListener('click', rollDice);
  
  function rollDice() {
-  const random = Math.floor(Math.random() * 6 + 1);
-  // const random = 4;
+//   const random = Math.floor(Math.random() * 6 + 1);
+  const random = 6;
+     console.log(random, 'dice number');
   let x = 0;
   let y = 0;
   
@@ -87,11 +91,14 @@ function addDiceEvent() {
    if (random != 6){
     currentX = 0
     currentY = 0;
-    playersDice[diceInit].innerHTML = '';
-    diceInit += 1;
+    playersDice[diceIndex].innerHTML = '';
+    diceIndex += 1;
     
-    displayDice(diceInit);
+    displayDice(diceIndex);
    }
+
+    //move coins function
+   calculateMoves(diceIndex,random);
   }, 1700)
  }
 }
