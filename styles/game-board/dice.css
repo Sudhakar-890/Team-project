@@ -31,25 +31,25 @@
 }
 
 .face1 {
-    transform: translateZ(50px);
+    transform: translateZ(20px);
 }
 
 .face4 {
-    transform: rotateY(180deg) translateZ(50px);
+    transform: rotateY(180deg) translateZ(20px);
 }
 
 .face2 {
-    transform: rotateY(90deg) translateZ(50px);
+    transform: rotateY(90deg) translateZ(20px);
 }
 
 .face3 {
-    transform: rotateY(-90deg) translateZ(50px);
+    transform: rotateY(-90deg) translateZ(20px);
 }
 
 .face5 {
-    transform: rotateX(90deg) translateZ(50px);
+    transform: rotateX(90deg) translateZ(20px);
 }
 
 .face6 {
-    transform: rotateX(-90deg) translateZ(50px);
+    transform: rotateX(-90deg) translateZ(20px);
 }

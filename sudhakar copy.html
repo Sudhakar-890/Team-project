@@ -10,75 +10,7 @@
 </head>
 
 <body>
-    <div class="diceContainer">
-        <div class="dice">
-            <div class="face1">
-                <img src="./assets/dice/one.png">
-            </div>
-            <div class="face2">
-                <img src="./assets/dice/two.png">
-            </div>
-            <div class="face3">
-                <img src="./assets/dice/three.png">
-            </div>
-            <div class="face4">
-                <img src="./assets/dice/four.png">
-            </div>
-            <div class="face5">
-                <img src="./assets/dice/five.png">
-            </div>
-            <div class="face6">
-                <img src="./assets/dice/six.png">
-            </div>
-        </div>
-    </div>
-    <script>
-        // extra spins
-            let currentX = 0;
-            let currentY = 0;
-        const dice = document.querySelector(".dice");
-        dice.addEventListener('click', rollDice);
-        function rollDice() {
-            const random = Math.floor(Math.random() * 6 + 1);
-            // const random = 4;
-            let x = 0;
-            let y = 0;
-
-            console.log(random);
-            switch (random) {
-                case 1:
-                    break;
-
-                case 2:
-                    y = -90;
-                    break;
-
-                case 3:
-                    y = 90;
-                    break;
-
-                case 4:
-                    x = 180;
-                    break;
-
-                case 5:
-                    x = -90;
-                    break;
-
-                case 6:
-                    x = 90;
-                    break;
-            }
-
-            currentX += x + 720;
-            currentY += y + 720; 
-
-            dice.style.transform = `rotateX(${currentX}deg) rotateY(${currentY}deg)`;
-
-        }
-
-        setTimeout(rollDice, 2000);
-    </script>
+    
 </body>
 
 </html>
