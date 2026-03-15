@@ -16,28 +16,28 @@ main{
 
 .player1{
     bottom:10px;
-    left:10px;
+    left:20px;
     background-color: rgb(48, 224, 48);
     color: white;
 }
 
 .player2 {
     top: 80px;
-    left: 10px;
+    left: 20px;
     background-color:orangered;
     color:white;
 }
 
 .player3 {
     top: 80px;
-    right: 10px;
+    right: 20px;
     background-color: blue;
     color:white;
 }
 
 .player4 {
     bottom: 10px;
-    right: 10px;
+    right: 20px;
     background-color: yellow;
 }
 
@@ -63,7 +63,7 @@ main{
 }
 
 .playerName{
-    font-size:15px;
+    font-size:12px;
 }
 
 .diceSlot{

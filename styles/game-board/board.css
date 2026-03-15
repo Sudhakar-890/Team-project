@@ -4,7 +4,7 @@
     outline: 6px double goldenrod;
     border: 3px darkblue;
     outline-offset: 3px;
-    margin: 130px auto;
+    margin: 150px auto;
     display: flex;
     flex-direction: column;
     gap: 0px;
@@ -156,6 +156,7 @@
     height: 33%;
     border-bottom: 1px solid black;
     border-left: 1px solid black;
+    background-color:white;
 }
 
 .homeContainer {
@@ -223,7 +224,7 @@
 
 .q4-home:not(.q4-36),
 .q4-origin {
-    background-color: yellow;
+    background-color: yellow !important;
     box-shadow: inset 0px 3px 5px rgba(0, 0, 0, 0.4);
     background-image: none !important;
 }
