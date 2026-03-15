@@ -1,21 +1,28 @@
+body{
+    background-image: url('../../assets/board-theme/background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 .board{
+    margin: 100px auto;
     border: 2px solid;
-    width: 349px;
-    height: 350px;
+    width: 348px;
+    height: 349px;
+    outline: 6px double #FFFFFF91;
 }
 .box{
     display: flex;
 }
 .redBox{
     border: 1px solid black;
-    width: 139.2px;
-    height: 139.2px;
+    width: 138px;
+    height: 138px;
     background-color:red;
 }
 .blueBox{
     border: 1px solid black;
-    width: 139.2px;
-    height: 139.2px;
+    width: 138px;
+    height: 138px;
     background-color:blue;
 }
 .greenBox{
@@ -75,8 +82,8 @@
       background-color: yellow;
 }
 .cell{
-    width: 22px;
-    height: 22px;
+    width: 21.8px;
+    height: 21.8px;
     border: 1px solid black;
 }
 .red{
