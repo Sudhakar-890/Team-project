@@ -1,0 +1,21 @@
+.header{
+  display: flex;
+  align-items: center;
+  background-color: #1B3C69 ;
+  height: 60px;
+}
+h2{
+  color: white;
+  padding-left: 10px;
+}
+.back{
+  width: 70px;
+  height: 35px;
+  border-radius: 10px;
+  background-color: #204B86;
+  color: white;
+  font-size: 18px;
+  box-shadow: 0 3px 10px black;
+  border: none;
+  margin-left: 10px;
+}

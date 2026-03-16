@@ -1,13 +1,20 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+
 body{
     background-image: url('../../assets/board-theme/background.png');
     background-repeat: no-repeat;
     background-size: cover;
 }
 .board{
-    margin: 100px auto;
+    margin: 30px auto;
     border: 2px solid;
     width: 348px;
-    height: 349px;
+    height: 354px;
     outline: 6px double #FFFFFF91;
 }
 .box{
@@ -15,26 +22,26 @@ body{
 }
 .redBox{
     border: 1px solid black;
-    width: 138px;
-    height: 138px;
+    width: 140px;
+    height: 140.7px;
     background-color:red;
 }
 .blueBox{
     border: 1px solid black;
-    width: 138px;
-    height: 138px;
+    width: 140px;
+    height: 140.7px;
     background-color:blue;
 }
 .greenBox{
     border: 1px solid black;
-    width: 138px;
-    height: 138px;
+    width: 140px;
+    height: 140px;
     background-color: green;
 }
 .yellowBox{
     border: 1px solid black;
-    width: 138px;
-    height: 138px;
+    width: 140px;
+    height: 140px;
     background-color: yellow;
 }
 .whiteBox{
@@ -82,8 +89,8 @@ body{
       background-color: yellow;
 }
 .cell{
-    width: 21.8px;
-    height: 21.8px;
+    width: 23px;
+    height: 23.4px;
     border: 1px solid black;
     background-color: white;
 }
@@ -106,5 +113,5 @@ body{
     border-bottom: 35px solid green;
     border-left: 35px solid red ;
     border-top: 35px solid blue;
-    border-right: 35px solid yellow
+    border-right: 33px solid yellow
 }
