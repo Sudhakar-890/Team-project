@@ -1,0 +1,8 @@
+.popup{
+  border: 1px solid blue;
+  width: 250px;
+  height: 150px;
+  border-radius: 7px;
+  background-color: blue ;
+  margin: 250px auto;
+}
