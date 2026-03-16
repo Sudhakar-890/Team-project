@@ -41,20 +41,22 @@ export function calculateMoves(diceIndex,random){
         let targetCoins = Object.entries(player);
         if(index1===diceIndex){
             if(random===6 && !player.reachedOrigin){
+             const controller = new AbortController();
                 targetCoins.forEach((coin,index2)=>{
-                    if(!coin.reachedOrigin && index2<4 && coin[1]==0){
+                 console.log(targetCoins[4]);
+                    if(index2<4 && coin[1]==0){
                         coinsImg[index2].classList.add('selectCoin');
-                        const handler = () => { enterOrigin(index1, index2); }
-                        handlers.push(handler);
+                       /* const handler = () => { enterOrigin(index1, index2); }
+                        handlers.push(handler);*/
                         console.log('first if', index2);
-                        coinsImg[index2].addEventListener('click',handler);
+                        coinsImg[index2].addEventListener('click',()=>{enterOrigin(index1,index2);controller.abort();},{signal:controller.signal});
                     }
                     else if(index2<4){
                         coinsImg[index2].classList.add('selectCoin');
-                        const handler = () => moveCoin(index1, index2);
-                        handlers.push(handler);
+                       /* const handler = () => moveCoin(index1, index2);
+                        handlers.push(handler);*/
                         console.log('second if',index2);
-                        coinsImg[index2].addEventListener('click',handler);
+                        coinsImg[index2].addEventListener('click',()=>{moveCoin(index1,index2);controller.abort();},{signal:controller.signal});
                     }
                 });
             }
@@ -62,9 +64,9 @@ export function calculateMoves(diceIndex,random){
             else{
                 targetCoins.forEach((coin,index2) => {
                     coinsImg[index2].classList.add('selectCoin');
-                    let handler = () => moveCoin(index1, index2);
-                    handlers[index2] = handler;
-                    coinsImg[index2].addEventListener('click', handler);
+                    /*let handler = () => moveCoin(index1, index2);
+                    handlers[index2] = handler;*/
+                    coinsImg[index2].addEventListener('click',moveCoin,{signal:controller.signal});
                 });
             }
         }
@@ -75,9 +77,9 @@ export function calculateMoves(diceIndex,random){
     
         GamePlayers[playerIndex][findCoin[coinIndex]] = 1;
         let reachedOriginCount = 0;
-        handlers.forEach((handler,index)=>{
+       /* handlers.forEach((handler,index)=>{
             coinsImg[index].removeEventListener('click', handler);
-        })
+        })*/
         coinsImg.forEach((coinImg,index)=>{
             if(index===coinIndex){
                 console.log(coinIndex)
@@ -95,7 +97,6 @@ export function calculateMoves(diceIndex,random){
             GamePlayers[playerIndex]['reachedOrigin'] = true;
             console.log('reachedOrigin all');
         }
-
         console.log(GamePlayers);
     }
 
@@ -105,9 +106,9 @@ export function calculateMoves(diceIndex,random){
         GamePlayers[playerIndex][findCoin[coinIndex]] += random;
         const coinStep = GamePlayers[playerIndex][findCoin[coinIndex]];
 
-        handlers.forEach((handler,index)=>{
+       /* handlers.forEach((handler,index)=>{
             coinsImg[index].removeEventListener('click', handler);
-        });
+        });*/
 
         console.log('move coin function');
         coinsImg.forEach((coinImg,index) => {

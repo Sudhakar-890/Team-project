@@ -51,7 +51,7 @@ function addDiceEvent() {
  dice.addEventListener('click', rollDice);
  
  function rollDice() {
-//   const random = Math.floor(Math.random() * 6 + 1);
+   //const random = Math.floor(Math.random() * 6 + 1);
   const random = 6;
      console.log(random, 'dice number');
   let x = 0;
