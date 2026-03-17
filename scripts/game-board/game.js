@@ -10,6 +10,9 @@ const players = [
 const coinNames = ["coin0", "coin1", "coin2", "coin3"];
 
 const origin = [1, 14, 27, 40];
+const safeBox = [1,9,14,22,27,35,40,48]
+
+let beforeIndexBox = 0;
 
 export function calculateMoves(playerIndex, diceValue) {
     const coinsNodeList = document.querySelectorAll(`.coin${playerIndex + 1}Img`);
@@ -21,13 +24,13 @@ export function calculateMoves(playerIndex, diceValue) {
 
     let movableCoins = [];
 
-    // STEP 1: Determine movable coins
+    // movable coins
     coins.forEach((coin, i) => {
 
         const coinName = coinNames[i];
         const position = players[playerIndex][coinName];
         
-        // coin in base
+        // coin in coin base
         if (position === 0) {
 
             if (diceValue === 6) {
@@ -43,13 +46,13 @@ export function calculateMoves(playerIndex, diceValue) {
 
     });
 
-    // STEP 2: No possible move
+    // no coins to move
     if (movableCoins.length === 0) {
         setTimeout(nextTurn, 800);
         return;
     }
 
-    // STEP 3: Highlight movable coins
+    // select the movable coins
 
     movableCoins.forEach((i) => {
         const coin = coins[i];
@@ -92,10 +95,10 @@ function enterBoard(playerIndex, coinIndex) {
     const start = origin[playerIndex];
     players[playerIndex][coinName] = start;
     document.querySelector(`.index-${start}`).appendChild(coin);
-
+    checkIndexBox(playerIndex,null,start);
 }
 
-// move the the onboard coin
+// move the onboard coin
 function moveCoin(playerIndex, coinIndex, diceValue) {
 
     const coinsNodeList = document.querySelectorAll(`.coin${playerIndex + 1}Img`);
@@ -115,8 +118,12 @@ function moveCoin(playerIndex, coinIndex, diceValue) {
     };
 
     players[playerIndex][coinName] = next;
-    document.querySelector(`.index-${next}`).appendChild(coin);
-
+     for(let i=current;i<=next;i++){
+        setTimeout(()=>{
+            document.querySelector(`.index-${i}`).appendChild(coin);
+        },0)
+    } 
+    checkIndexBox(playerIndex,current,next);
 }
 
 //clear the selection after a player move
@@ -136,3 +143,41 @@ function clearSelection(playerIndex) {
     });
 
 }
+
+// coin count in moved box
+
+function checkIndexBox(playerIndex,preBoxIndex,boxIndex){
+    const box = document.querySelector(`.index-${boxIndex}`);
+    console.log(playerIndex,preBoxIndex,boxIndex)
+    let coinsInBox = box.querySelectorAll(`.coin${playerIndex + 1}Img`);
+    console.log(coinsInBox.length,'coin length')
+    if (coinsInBox.length > 1) {
+        if (box.querySelector('.coinCount')){
+            box.querySelector('.coinCount').remove()}
+        let spanHtml =
+            `
+                <span class='coinCount coinCountSpan${boxIndex}' >
+                    ${coinsInBox.length}
+                </span>
+
+            `;
+        coinsInBox[0].insertAdjacentHTML('beforebegin', spanHtml);
+    }
+
+    else {
+        console.log(boxIndex,box)
+        if (box.querySelector('.coinCount')) {
+            box.querySelector('.coinCount').remove()
+        }
+    }
+
+    if (preBoxIndex) {
+        // temp = boxIndex - preBoxIndex;
+        console.log(preBoxIndex,'insidePreBVox')
+        checkIndexBox(playerIndex,null,preBoxIndex);
+    }
+}
+
+// this lebal how coins are in box
+
+/*  */

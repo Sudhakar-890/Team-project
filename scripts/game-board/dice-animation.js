@@ -1,7 +1,7 @@
 import { calculateMoves } from "./game.js";
 
 let currentPlayer = 0;
-let lastDice = 0;
+let lastDiceValue = 0;
 
 const diceSlots = document.querySelectorAll(".diceSlot");
 
@@ -22,7 +22,7 @@ renderDice();
 
 export function nextTurn() {
 
-    if (lastDice !== 6) {
+    if (lastDiceValue !== 6) {
         currentPlayer++;
         if (currentPlayer > 3) currentPlayer = 0;
     }
@@ -30,8 +30,7 @@ export function nextTurn() {
 
 }
 
-function renderDice() {
-
+function renderDice() {  
     diceSlots.forEach(s => s.innerHTML = "");
     diceSlots[currentPlayer].insertAdjacentHTML("afterbegin", diceHTML);
     const dice = diceSlots[currentPlayer].querySelector(".dice");
@@ -40,16 +39,16 @@ function renderDice() {
 }
 
 function rollDice() {
-
     const dice = diceSlots[currentPlayer].querySelector(".dice");
+    dice.removeEventListener('click', rollDice);
     const random = 6 /* Math.floor(Math.random() * 6) + 1; */
-    lastDice = random;
+    lastDiceValue = random;
 
     let x = 0, y = 0;
 
     switch (random) {
         case 1:break;
-        case 2: y = -90; break;
+        case 2: y = -90; break; 
         case 3: y = 90; break;
         case 4: x = 180; break;
         case 5: x = -90; break;
@@ -57,7 +56,7 @@ function rollDice() {
     }
 
     dice.style.transform = `rotateX(${x}deg) rotateY(${y}deg)`;
-    dice.style.animation = "extraSpin 1s ease";
+    //dice.style.animation = "extraSpin 1s ease-out";
 
     setTimeout(() => {
         dice.style.animation = "";
