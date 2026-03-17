@@ -263,15 +263,16 @@
 
 @keyframes scaleUpDown{
     0%{transform:scale(1) rotate(0deg)}
-    50%{transform: scale(1.2) rotate(180deg)}
-    100%{transform:scale(1) rotate(360deg)}
+    50%{transform: scale(1.4) /* rotate(180deg) */}
+    100%{transform:scale(1) /* rotate(360deg) */}
 }
 
 /* empty coin space */
 .movingCoin{
-    width:70%;
-    height: 70%;
+    width:18px;
+    height:18px;
     position: absolute;
-    left:10%;
+    left:12%;
     top:10%;
+    z-index:10;
 }

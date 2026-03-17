@@ -26,7 +26,6 @@ export function nextTurn() {
         currentPlayer++;
         if (currentPlayer > 3) currentPlayer = 0;
     }
-
     renderDice();
 
 }
@@ -34,11 +33,8 @@ export function nextTurn() {
 function renderDice() {
 
     diceSlots.forEach(s => s.innerHTML = "");
-
     diceSlots[currentPlayer].insertAdjacentHTML("afterbegin", diceHTML);
-
     const dice = diceSlots[currentPlayer].querySelector(".dice");
-
     dice.addEventListener("click", rollDice);
 
 }
@@ -46,14 +42,13 @@ function renderDice() {
 function rollDice() {
 
     const dice = diceSlots[currentPlayer].querySelector(".dice");
-
-    const random = Math.floor(Math.random() * 6) + 1;
-
+    const random = 6 /* Math.floor(Math.random() * 6) + 1; */
     lastDice = random;
 
     let x = 0, y = 0;
 
     switch (random) {
+        case 1:break;
         case 2: y = -90; break;
         case 3: y = 90; break;
         case 4: x = 180; break;
@@ -65,11 +60,8 @@ function rollDice() {
     dice.style.animation = "extraSpin 1s ease";
 
     setTimeout(() => {
-
         dice.style.animation = "";
-
         calculateMoves(currentPlayer, random);
-
     }, 1200);
 
 }
