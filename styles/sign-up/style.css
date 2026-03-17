@@ -1,0 +1,78 @@
+body{
+background-image:url('/assets/sign-up/background.jpg');
+background-repeat:no-repeat;
+background-size:cover;
+background-position: center;
+height: 670px;
+html{
+Width:100%;
+Height:100%
+}
+.logo{
+  width:220px;
+  padding-left:60px;
+  padding-top:0px;
+  margin-top: -90px;
+}
+.logocontainer{
+display:flex;
+}
+.words{
+  font-family: 'Times New Roman';
+  font-size: 25px;
+  padding-left: 50px;
+  margin-top: -86px;
+  color: midnightblue;
+}
+
+.inputcontainer{
+  display:grid;
+  grid-template:rows;
+  justify-content:spacebetween;
+}
+.inputbox{
+
+  width:290px;
+  height: 40px;
+  margin-left: 30px;
+  border-radius: 7px;
+  margin-top: 20px;
+  box-shadow: 20px;
+  font-size: 17px;
+  outline: none;
+  }
+  .inputbox::placeholder{
+  padding-left: 20px;
+  }
+  .button{
+    height: 50px;
+    width:300px;
+    margin-left: 30px;
+    border-radius: 7px;
+    background-color: #38a839;
+    color: white;
+    margin-top: 30px;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    box-shadow: 0px 1px 0px black ;
+  }
+  .button::placeholder{
+    font-weight:bold;
+  }
+  .button:hover{
+    background-color: lightslategrey;
+    
+  }
+  .text1{
+    padding-left: 55px;
+    font-size: 15px;
+    color: midnightblue;
+    padding-top: 30px;
+  }
+  .text2{
+    padding-left: 230px;
+    font-size: 15px;
+    color: royalblue;
+    margin-top: -39px;
+  }
