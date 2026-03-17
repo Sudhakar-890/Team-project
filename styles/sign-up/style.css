@@ -5,8 +5,7 @@ background-size:cover;
 background-position: center;
 height: 670px;
 html{
-Width:100%;
-Height:100%
+
 }
 .logo{
   width:220px;
@@ -32,7 +31,7 @@ display:flex;
 }
 .inputbox{
 
-  width:290px;
+  width:240px;
   height: 40px;
   margin-left: 30px;
   border-radius: 7px;
@@ -45,8 +44,8 @@ display:flex;
   
   .button{
     height: 50px;
-    width:300px;
-    margin-left: 30px;
+    width:260px;
+    margin-left: 40px;
     border-radius: 7px;
     background-color: #38a839;
     color: white;
@@ -86,5 +85,19 @@ display:flex;
     position: absolute;
     left:45px;
     top:310px;
+    opacity: 0.4;
+  }
+  .lock1{
+  width:22px;
+    position: absolute;
+    left:45px;
+    top:374px;
+    opacity: 0.4;
+  }
+  .lock2{
+  width:22px;
+    position: absolute;
+    left:45px;
+    top:440px;
     opacity: 0.4;
   }
