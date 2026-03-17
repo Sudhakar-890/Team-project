@@ -14,8 +14,7 @@ body{
     background-repeat: no-repeat;
     background-position:center;
     background-size:cover;
-    width:100%;
-    height: 100%;
+    overflow: hidden;
 }
 
 #headerLogo{
@@ -35,8 +34,8 @@ body{
     text-align: center ;
     margin-bottom: 20px;
 }
-#headerText .text{
-    color: blue;
+.text{
+    color: black;
 }
 #emailBar{
     width: 100%;
@@ -47,7 +46,6 @@ body{
     width: 100%;
     height: 70px;
     text-align: center;
-
 }
 #emailBar .mailBox{
     width: 80%;
@@ -76,30 +74,38 @@ body{
     width: 100%;
     height: 30px;
     text-align: right ;
-    
 }
 
-#forgotPart .forgotText{
+.forgotText{
     margin-right:35px;
     margin-top: 7px;
     display: inline-block;
     color:blue;
+    border:none;
+    text-decoration: underline;
+    font-size: 14px;
+    background-color: #FDFAFF5E;
 }
 #signinBar{
     width: 100%;
     height: 100px;
     text-align: center;
 }
-#signinBar .signinButton{
+
+.signinButton{
     width: 80%;
-    height:60px ;
-    border-radius: 10px 10px 10px 10px;
+    height:50px ;
+    border-radius: 15px;
     border: 2px blue solid;
     font-weight: bolder;
     font-size: 30px;
     color: white;
     background: blue;
     margin-top:20px;
+    box-shadow: 3px 3px 10px black;
+}
+.signinButton:hover{
+    background-color: #0E1EDC;
 }
 .ortext{
     text-align: center;
@@ -108,31 +114,53 @@ body{
     width: 100%;
     height: 160px;
 }
+.google{
+    position: absolute;
+    width: 20px;
+    left: 55px;
+    top: 515px;
+}
 .signgoole{
     width: 80%;
     margin-left:37px;
     height: 45px;
     margin-top: 20px;
-    border-radius: 10px 10px 10px 10px;
+    border-radius: 30px;
     outline: 0px;
-    border:2px violet solid;
+    border:2px blue solid;
         font-weight: bolder;
     font-size: 18px;
     background-color: white;
-    
+    box-shadow: 3px 3px 10px black
 }
-.signfacebook{    width: 80%;
+.signgoole:hover{
+    background-color :blue;
+    color: white;
+    opacity: 0.6;
+}
+.facebook{
+    position: absolute;
+    width: 25px;
+    left: 53px;
+    top: 578px;
+}
+.signfacebook{    
+    width: 80%;
     margin-left:37px;
     height: 45px;
         margin-top: 20px;
-    border-radius: 10px 10px 10px 10px;
-        outline: 0px;
-    border:2px violet solid;
+    border-radius: 30px;
+    outline: 0px;
+    border:2px blue solid;
     font-weight: bolder;
     font-size: 18px;
+    background: white;
+    box-shadow: 3px 3px 10px black
+}
+.signfacebook:hover{
+    background-color :blue;
     color: white;
-    background: blue;
-    
+    opacity: 0.6;
 }
 .accountText{
     display: inline-block;
@@ -143,6 +171,4 @@ body{
 .signupText{
     display: inline-block;
     color:blue;
-        
-    
 }
