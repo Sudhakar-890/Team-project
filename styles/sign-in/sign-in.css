@@ -157,13 +157,12 @@ body{
     color: white;
     opacity: 0.6;
 }
-.accountText{
-    display: inline-block;
-    margin-left: 70px;
-    margin-top: 60px;
-    
+p{
+    margin: 40px auto;
+    margin-left: 60px;
 }
-.signupText{
+span{
     display: inline-block;
     color:blue;
+    text-decoration: underline;
 }
