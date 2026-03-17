@@ -40,10 +40,9 @@ display:flex;
   box-shadow: 20px;
   font-size: 17px;
   outline: none;
+  padding-left: 40px;
   }
-  .inputbox::placeholder{
-  padding-left: 20px;
-  }
+  
   .button{
     height: 50px;
     width:300px;
@@ -57,8 +56,7 @@ display:flex;
     font-weight: 700;
     box-shadow: 0px 1px 0px black ;
   }
-  .button::placeholder{
-    font-weight:bold;
+
   }
   .button:hover{
     background-color: lightslategrey;
@@ -75,4 +73,18 @@ display:flex;
     font-size: 15px;
     color: royalblue;
     margin-top: -39px;
+  }
+  .prof{
+    width:27px;
+    position: absolute;
+    left:45px;
+    top:243px;
+    opacity: 0.4;
+  }
+    .mail{
+    width:27px;
+    position: absolute;
+    left:45px;
+    top:310px;
+    opacity: 0.4;
   }
