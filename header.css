@@ -1,3 +1,10 @@
+html{
+  width: 100%;
+  height:100%;
+  overflow-x: hidden;
+}
+
+
   body {
   background-image:url('../assets/background.png');
   background-size: cover;
@@ -5,11 +12,13 @@
   background-repeat:no-repeat;
   width: 100%;
   height: 100%;
+  overflow-x: hidden;
+  overscroll-behavior:none;
 }
 
 #top{
   color: White;
-  text-align: center;
+  text-align: center;  
   margin-top: 0px;
   padding-left: 110px;
   font-weight: bold;

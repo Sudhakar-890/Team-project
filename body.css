@@ -36,5 +36,78 @@ button:hover{
   color: white;
   text-size-adjust: auto;
 }
-  
-  
+#box{
+  background: #C3CE25;
+  position: absolute;
+  top: 207px;
+  left: 295px;
+}
+
+.main{
+  border: solid;
+  border-radius: 15px;
+  border-width: 5px;
+  border-color: rbg(0, 255, 255);
+  width: 375px;
+  height: 150px;
+  background: #2C3379;
+margin-right:16px;
+margin-top:40px;
+display: flex;
+justify-content: space-between;
+color: #FFFB00;
+}
+.box1{
+  padding: 0px;
+    display: flex;
+  justify-content: space-between;
+  column-gap: 225px;
+  padding-left: 10px;
+}
+.rightContent{
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  padding-bottom: 10px;
+}
+.centerContent{
+  position: absolute;
+  right: 20px;
+  bottom: 390px;
+  left: 20px;
+}
+.stage{
+  position: absolute;
+  right: 20px;
+  bottom: 390px;
+  left: 100px;
+}
+.time{
+  position: absolute;
+  right: 20px;
+  bottom: 390px;
+  left: 150px;
+}
+.date{
+  position: absolute;
+  right: 20px;
+  bottom: 390px;
+  left: 300px;
+}
+.points{
+  position: absolute;
+  right: 275px;
+  bottom:340px;
+}
+.bottom{
+  width: 100px;
+  height: 30px;
+  background: darkgreen;
+}
+.logo{
+  width: 20px;
+  height: 15px;
+  position: absolute;
+  right:100px;
+  top:140px ;
+}
