@@ -99,35 +99,33 @@ function enterBoard(playerIndex, coinIndex) {
 }
 
 // move the onboard coin
-function moveCoin(playerIndex, coinIndex, diceValue) {
+const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
-    const coinsNodeList = document.querySelectorAll(`.coin${playerIndex + 1}Img`);
-    let coins = [0, 1, 2, 3];
-    coinsNodeList.forEach((node) => {
-        const id = node.dataset.coin;
-        coins[id] = node;
-    })
-
-    const coin = coins[coinIndex];
+async function moveCoin(playerIndex, coinIndex, diceValue) {
+    const coin = document.querySelector(`.coin${playerIndex + 1}Img[data-coin="${coinIndex}"]`);
     const coinName = coinNames[coinIndex];
+    
     let current = players[playerIndex][coinName];
     let next = current + diceValue;
 
-    if (next > 52){
-        next = next - 52
-    };
+    if (next > 52) next -= 52;
 
+    const previousPosition = current;
     players[playerIndex][coinName] = next;
-     for(let i=current;i<=next;i++){
-        setTimeout(()=>{
-            document.querySelector(`.index-${i}`).appendChild(coin);
-        },0)
-    } 
-    checkIndexBox(playerIndex,current,next);
+
+    for (let i = current + 1; i <= next; i++) {
+        const targetBox = document.querySelector(`.index-${i}`);
+        if (targetBox) {
+            targetBox.appendChild(coin);
+            await delay(200);
+        }
+    }
+
+    checkIndexBox(playerIndex, previousPosition, next);
 }
 
-//clear the selection after a player move
 
+//clear the selection after a player move
 function clearSelection(playerIndex) {
 
     const coinsNodeList = document.querySelectorAll(`.coin${playerIndex + 1}Img`);
@@ -144,40 +142,28 @@ function clearSelection(playerIndex) {
 
 }
 
+
 // coin count in moved box
-
-function checkIndexBox(playerIndex,preBoxIndex,boxIndex){
+function checkIndexBox(playerIndex, preBoxIndex, boxIndex) {
     const box = document.querySelector(`.index-${boxIndex}`);
-    console.log(playerIndex,preBoxIndex,boxIndex)
-    let coinsInBox = box.querySelectorAll(`.coin${playerIndex + 1}Img`);
-    console.log(coinsInBox.length,'coin length')
-    if (coinsInBox.length > 1) {
-        if (box.querySelector('.coinCount')){
-            box.querySelector('.coinCount').remove()}
-        let spanHtml =
-            `
-                <span class='coinCount coinCountSpan${boxIndex}' >
-                    ${coinsInBox.length}
-                </span>
+    if (!box) return;
+    
+    const updateBoxUI = () => {
+        const coinsInBox = box.querySelectorAll(`.coin${playerIndex + 1}Img`);
+        const existingSpan = box.querySelector('.coinCount');
+        
+        if (existingSpan) existingSpan.remove();
 
-            `;
-        coinsInBox[0].insertAdjacentHTML('beforebegin', spanHtml);
-    }
-
-    else {
-        console.log(boxIndex,box)
-        if (box.querySelector('.coinCount')) {
-            box.querySelector('.coinCount').remove()
+        if (coinsInBox.length > 1) {
+            const spanHtml = `<span class='coinCount coinCountSpan${boxIndex}'>${coinsInBox.length}</span>`;
+            
+            coinsInBox[0].insertAdjacentHTML('beforebegin', spanHtml);
         }
-    }
+    };
 
-    if (preBoxIndex) {
-        // temp = boxIndex - preBoxIndex;
-        console.log(preBoxIndex,'insidePreBVox')
-        checkIndexBox(playerIndex,null,preBoxIndex);
+    requestAnimationFrame(updateBoxUI);
+
+    if (preBoxIndex !== null && preBoxIndex !== undefined) {
+        checkIndexBox(playerIndex, null, preBoxIndex);
     }
 }
-
-// this lebal how coins are in box
-
-/*  */

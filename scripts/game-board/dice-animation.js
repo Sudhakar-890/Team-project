@@ -41,7 +41,7 @@ function renderDice() {
 function rollDice() {
     const dice = diceSlots[currentPlayer].querySelector(".dice");
     dice.removeEventListener('click', rollDice);
-    const random = 6 /* Math.floor(Math.random() * 6) + 1; */
+    const random = Math.floor(Math.random() * 6) + 1; 
     lastDiceValue = random;
 
     let x = 0, y = 0;
@@ -56,7 +56,7 @@ function rollDice() {
     }
 
     dice.style.transform = `rotateX(${x}deg) rotateY(${y}deg)`;
-    //dice.style.animation = "extraSpin 1s ease-out";
+    dice.style.animation = "extraSpin 1s ease-out";
 
     setTimeout(() => {
         dice.style.animation = "";
