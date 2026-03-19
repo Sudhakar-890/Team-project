@@ -1,8 +1,8 @@
 import { nextTurn } from "./dice-animation.js";
 
 const players = [
-    { coin0: 0, coin1: 0, coin2: 0, coin3: 0 },
-    { coin0: 0, coin1: 0, coin2: 0, coin3: 0 },
+    { coin0: 0, coin1: 1, coin2: 0, coin3: 0 },
+    { coin0: 0, coin1: 1, coin2: 0, coin3: 0 },
     { coin0: 0, coin1: 0, coin2: 0, coin3: 0 },
     { coin0: 0, coin1: 0, coin2: 0, coin3: 0 }
 ];
@@ -10,9 +10,8 @@ const players = [
 const coinNames = ["coin0", "coin1", "coin2", "coin3"];
 
 const origin = [1, 14, 27, 40];
-const safeBox = [1,9,14,22,27,35,40,48]
-
-let beforeIndexBox = 0;
+const home = [51,12,25,38];
+const safeBox = [1,9,14,22,27,35,40,48];
 
 export function calculateMoves(playerIndex, diceValue) {
     const coinsNodeList = document.querySelectorAll(`.coin${playerIndex + 1}Img`);
@@ -103,25 +102,39 @@ const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 async function moveCoin(playerIndex, coinIndex, diceValue) {
     const coin = document.querySelector(`.coin${playerIndex + 1}Img[data-coin="${coinIndex}"]`);
+    coin.classList.add('movingCoin');
     const coinName = coinNames[coinIndex];
+
+    let playerHome = home[playerIndex];
     
     let current = players[playerIndex][coinName];
     let next = current + diceValue;
 
     if (next > 52) next -= 52;
 
-    const previousPosition = current;
     players[playerIndex][coinName] = next;
 
-    for (let i = current + 1; i <= next; i++) {
-        const targetBox = document.querySelector(`.index-${i}`);
+    for (let i = 1; i <= diceValue; i++) {
+        let temp = current + i;
+        if (temp > 52) temp -= 52;
+
+        if(temp==playerHome){
+            homePath(playerIndex,coin,temp);
+            return;
+        }
+
+        else{
+            const targetBox = document.querySelector(`.index-${temp}`);
+        }
+        
         if (targetBox) {
             targetBox.appendChild(coin);
-            await delay(200);
+            await delay(250);
         }
     }
 
-    checkIndexBox(playerIndex, previousPosition, next);
+    checkIndexBox(playerIndex, current, next);
+    checkAttack(playerIndex, next);
 }
 
 
@@ -148,7 +161,7 @@ function checkIndexBox(playerIndex, preBoxIndex, boxIndex) {
     const box = document.querySelector(`.index-${boxIndex}`);
     if (!box) return;
     
-    const updateBoxUI = () => {
+    function updateBoxUI () {
         const coinsInBox = box.querySelectorAll(`.coin${playerIndex + 1}Img`);
         const existingSpan = box.querySelector('.coinCount');
         
@@ -163,7 +176,58 @@ function checkIndexBox(playerIndex, preBoxIndex, boxIndex) {
 
     requestAnimationFrame(updateBoxUI);
 
-    if (preBoxIndex !== null && preBoxIndex !== undefined) {
+    if (preBoxIndex !== null) {
         checkIndexBox(playerIndex, null, preBoxIndex);
     }
+}
+
+function checkAttack(playerIndex, boxIndex){
+    let box = document.querySelector(`.index-${boxIndex}`);
+    if (!box || safeBox.includes(boxIndex)) return;
+    
+    function updateBoxUI(){
+        const myCoin  = box.querySelectorAll(`.coin${playerIndex+1}Img`);
+        const coinInBox = box.querySelectorAll('img');
+        if(myCoin.length==coinInBox.length) return;
+        else{
+            players.forEach((player,i)=>{
+                if(playerIndex!=i){
+                    console.log('player :',i);
+                
+                    let coinData = Object.entries(player);
+                    coinData.forEach((coin,i2)=>{
+                        if(coin[1]!==0){
+                            let enemyCoin = box.querySelectorAll(`.coin${i + 1}Img[data-coin="${i2}"]`);
+
+                            console.log(enemyCoin, i, i2)
+                            if(enemyCoin){
+                                const coinName = coinNames[i2];
+                                players[i][coinName] = 0;
+                                handleAttack(enemyCoin,i,i2);
+                            }
+                        }
+                    }); 
+                }
+            })
+        }
+    }
+
+    requestAnimationFrame(updateBoxUI);
+}
+
+function handleAttack(lostCoin,enemyPlayerIndex,coinIndex){
+    let coinSlots = document.querySelectorAll(`.coin${enemyPlayerIndex+1}`);
+
+    coinSlots.forEach((coinSlot,i)=>{
+
+        if(coinIndex===i){
+            let targetCoinSlot = coinSlot;
+            lostCoin[0].classList.remove('movingCoin');
+            targetCoinSlot.appendChild(lostCoin[0]);
+        }
+    });
+}
+
+function homePath(){
+    
 }
