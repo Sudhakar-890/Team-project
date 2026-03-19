@@ -20,11 +20,11 @@ const diceHTML = `
 
 renderDice();
 
-export function nextTurn() {
+export function nextTurn(inc) {
 
     if (lastDiceValue !== 6) {
-        currentPlayer++;
-        if (currentPlayer > 3) currentPlayer = 0;
+        currentPlayer+=inc;
+        if (currentPlayer > 3)currentPlayer = 0;
     }
     renderDice();
 
@@ -84,6 +84,6 @@ function rollDice() {
     setTimeout(() => {
         // dice.style.animation = "";
         calculateMoves(currentPlayer, random);
-    }, 1200);
+    }, 1500);
 
 }

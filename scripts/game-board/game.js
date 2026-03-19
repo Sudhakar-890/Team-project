@@ -5,7 +5,7 @@ const players = [
     { coin0: 0, coin1: 0, coin2: 0, coin3: 0 },
     { coin0: 0, coin1: 0, coin2: 0, coin3: 0 },
     { coin0: 0, coin1: 0, coin2: 0, coin3: 0 }
-];
+]; 
 
 const coinNames = ["coin0", "coin1", "coin2", "coin3"];
 
@@ -14,7 +14,7 @@ const home = [51,12,25,38];
 const safeBox = [1,9,14,22,27,35,40,48];
 const homeCoins = []
 
-export function calculateMoves(playerIndex, diceValue) {
+export async function calculateMoves(playerIndex, diceValue) {
     const coinsNodeList = document.querySelectorAll(`.coin${playerIndex + 1}Img`);
     let coins = [0,1,2,3];
     coinsNodeList.forEach((node)=>{
@@ -49,7 +49,7 @@ export function calculateMoves(playerIndex, diceValue) {
 
     // no coins to move
     if (movableCoins.length === 0) {
-        setTimeout(nextTurn, 800);
+        setTimeout(nextTurn(1), 800);
         return;
     }
 
@@ -64,14 +64,17 @@ export function calculateMoves(playerIndex, diceValue) {
             const current = players[playerIndex][coinName];
 
             if (current === 0) {
-                enterBoard(playerIndex, i);
+               enterBoard(playerIndex, i) && nextTurn(0);
             }
+
             else {
-                moveCoin(playerIndex, i, diceValue);
+                let Mcheck = moveCoin(playerIndex, i, diceValue);
+                console.log(Mcheck)
+                if(!Mcheck) nextTurn(0);
+                else nextTurn(1);
             }
 
             clearSelection(playerIndex);
-            nextTurn();
 
         };
 
@@ -103,6 +106,7 @@ function enterBoard(playerIndex, coinIndex) {
     players[playerIndex][coinName] = start;
     document.querySelector(`.index-${start}`).appendChild(coin);
     checkIndexBox(playerIndex,null,start);
+    return true;
 }
 
 // move the onboard coin
@@ -115,9 +119,11 @@ async function moveCoin(playerIndex, coinIndex, diceValue) {
 
     const coinName = coinNames[coinIndex];
 
+    let Hcheck;
+
     if(homeCoins.includes(coin)){
-        homePath(playerIndex, coin, diceValue);
-        return;
+        Hcheck = homePath(playerIndex, coin, diceValue);
+        if(Hcheck) return true;
     }
 
     let playerHome = home[playerIndex];
@@ -147,8 +153,8 @@ async function moveCoin(playerIndex, coinIndex, diceValue) {
             }
 
             homeCoins.push(coin);
-            homePath(playerIndex, coin, remainingSteps);
-            return;
+            Hcheck = homePath(playerIndex, coin, remainingSteps);
+            if(Hcheck) return true;
         }
 
         else{
@@ -162,7 +168,9 @@ async function moveCoin(playerIndex, coinIndex, diceValue) {
     }
 
     checkIndexBox(playerIndex, current, next);
-    checkAttack(playerIndex, next);
+    let Acheck = checkAttack(playerIndex, next);
+    if(Acheck) return true;;
+    return false;
 }
 
 
@@ -211,12 +219,14 @@ function checkIndexBox(playerIndex, preBoxIndex, boxIndex) {
 
 function checkAttack(playerIndex, boxIndex){
     let box = document.querySelector(`.index-${boxIndex}`);
-    if (!box || safeBox.includes(boxIndex)) return;
+    if (!box || safeBox.includes(boxIndex)) return false;
+
+    let AboolCheck = false;
     
     function updateBoxUI(){
         const myCoin  = box.querySelectorAll(`.coin${playerIndex+1}Img`);
         const coinInBox = box.querySelectorAll('img');
-        if(myCoin.length==coinInBox.length) return;
+        if(myCoin.length==coinInBox.length) AboolCheck = false;
         else{
             players.forEach((player,i)=>{
                 if(playerIndex!=i){
@@ -234,15 +244,18 @@ function checkAttack(playerIndex, boxIndex){
                             if(enemyCoin.length!==0){
                                 const coinName = coinNames[i2];
                                 players[i][coinName] = 0;
-                                handleAttack(enemyCoin,i,i2);
+                                AboolCheck = handleAttack(enemyCoin,i,i2);
+                                return true;
                             }
                         }
                         requestAnimationFrame(updateBoxUI);
                         }
                     }); 
                 }
-            })
+            });
         }
+
+        return AboolCheck;
     }
 
     requestAnimationFrame(updateBoxUI);
@@ -257,9 +270,11 @@ function handleAttack(lostCoin,enemyPlayerIndex,coinIndex){
             let targetCoinSlot = coinSlot;
             lostCoin[0].classList.remove('movingCoin');
             targetCoinSlot.appendChild(lostCoin[0]);
-            return;
+            nextTurn(0);
+            return false;
         }
     });
+    nextTurn(1);
 }
 
 async function homePath(playerIndex, coin, remainDiceValue) {
@@ -274,8 +289,8 @@ async function homePath(playerIndex, coin, remainDiceValue) {
     // if higher 
     if (finalStep > 6){
         console.log('higher')
-        nextTurn();
-        return
+        nextTurn(1);
+        return false;
     }
 
     for (let i = currentStep + 1; i <= finalStep; i++) {
@@ -289,7 +304,8 @@ async function homePath(playerIndex, coin, remainDiceValue) {
 
             players[playerIndex][coinName] = null;
             targetBox.appendChild(coin);
-            return;
+            nextTurn(0);
+            return true;
         }
 
         const targetBox = document.querySelector(`.h${playerIndex + 1}-Index-${i}`);
