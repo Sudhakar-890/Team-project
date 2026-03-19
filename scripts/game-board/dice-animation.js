@@ -46,7 +46,7 @@ function renderDice() {
 function rollDice() {
     const dice = diceSlots[currentPlayer].querySelector(".dice");
     document.onkeydown = null;
-    const random =  6; /* Math.floor(Math.random() * 6) + 1 */ 
+    const random =  Math.floor(Math.random() * 6) + 1 ; 
     lastDiceValue = random;
 
     let x = 0, y = 0;
