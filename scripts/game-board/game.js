@@ -1,7 +1,7 @@
 import { nextTurn } from "./dice-animation.js";
 
 const players = [
-    { coin0: 0, coin1: 1, coin2: 0, coin3: 0 },
+    { coin0: 0, coin1: 0, coin2: 0, coin3: 0 },
     { coin0: 0, coin1: 1, coin2: 0, coin3: 0 },
     { coin0: 0, coin1: 0, coin2: 0, coin3: 0 },
     { coin0: 0, coin1: 0, coin2: 0, coin3: 0 }
@@ -106,6 +106,7 @@ async function moveCoin(playerIndex, coinIndex, diceValue) {
     const coinName = coinNames[coinIndex];
 
     let playerHome = home[playerIndex];
+    let targetBox;
     
     let current = players[playerIndex][coinName];
     let next = current + diceValue;
@@ -118,13 +119,13 @@ async function moveCoin(playerIndex, coinIndex, diceValue) {
         let temp = current + i;
         if (temp > 52) temp -= 52;
 
-        if(temp==playerHome){
+        if(temp==playerHome && 0){
             homePath(playerIndex,coin,temp);
             return;
         }
 
         else{
-            const targetBox = document.querySelector(`.index-${temp}`);
+            targetBox = document.querySelector(`.index-${temp}`);
         }
         
         if (targetBox) {
@@ -228,6 +229,7 @@ function handleAttack(lostCoin,enemyPlayerIndex,coinIndex){
     });
 }
 
-function homePath(){
+function homePath(playerIndex,coin,temp){
+    
     
 }
