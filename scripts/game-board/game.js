@@ -2,7 +2,7 @@ import { nextTurn } from "./dice-animation.js";
 
 const players = [
     { coin0: 0, coin1: 0, coin2: 0, coin3: 0 },
-    { coin0: 0, coin1: 1, coin2: 0, coin3: 0 },
+    { coin0: 0, coin1: 0, coin2: 0, coin3: 0 },
     { coin0: 0, coin1: 0, coin2: 0, coin3: 0 },
     { coin0: 0, coin1: 0, coin2: 0, coin3: 0 }
 ];
@@ -12,6 +12,7 @@ const coinNames = ["coin0", "coin1", "coin2", "coin3"];
 const origin = [1, 14, 27, 40];
 const home = [51,12,25,38];
 const safeBox = [1,9,14,22,27,35,40,48];
+const homeCoins = [];
 
 export function calculateMoves(playerIndex, diceValue) {
     const coinsNodeList = document.querySelectorAll(`.coin${playerIndex + 1}Img`);
@@ -38,7 +39,7 @@ export function calculateMoves(playerIndex, diceValue) {
         }
 
         // coin already on board
-        else {
+        else if(position!==null) {
             movableCoins.push(i);
 
         }
@@ -102,7 +103,15 @@ const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 async function moveCoin(playerIndex, coinIndex, diceValue) {
     const coin = document.querySelector(`.coin${playerIndex + 1}Img[data-coin="${coinIndex}"]`);
+
     coin.classList.add('movingCoin');
+
+    if(homeCoins.includes(coin)){
+         console.log('already');
+         homePath(playerIndex,coin,diceValue);
+         return;
+        };
+
     const coinName = coinNames[coinIndex];
 
     let playerHome = home[playerIndex];
@@ -119,8 +128,9 @@ async function moveCoin(playerIndex, coinIndex, diceValue) {
         let temp = current + i;
         if (temp > 52) temp -= 52;
 
-        if(temp==playerHome && 0){
-            homePath(playerIndex,coin,temp);
+        if(temp==playerHome+1){
+            homeCoins.push(coin);
+            homePath(playerIndex,coin,diceValue-i);
             return;
         }
 
@@ -229,7 +239,31 @@ function handleAttack(lostCoin,enemyPlayerIndex,coinIndex){
     });
 }
 
-function homePath(playerIndex,coin,temp){
-    
+async function homePath(playerIndex,coin,remainDiceValue){
+    // console.log(playerIndex, coin, remainDiceValue);
+
+    let initial = coin.parentElement.dataset.home || 1;
+
+    for (let i = initial; i <= remainDiceValue +1;i++){
+
+        if(i==6){
+            const targetBox = document.querySelector(`.q${playerIndex+1}-home-origin`);
+            coin.classList.add('homeCoin');
+            coin.classList.remove('movingCoin');
+            let coinIndex = coin.dataset.coin;
+            let coinName = coinNames[coinIndex];
+            players[playerIndex][coinName] = null;
+            targetBox.appendChild(coin);
+            return;
+        }
+
+        else{
+            const targetBox = document.querySelector(`.h${playerIndex + 1}-Index-${i}`);
+            targetBox.appendChild(coin);
+        }
+        
+        await delay(250);
+        
+    }
     
 }
