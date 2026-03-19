@@ -304,3 +304,34 @@
     top: 3px;
     left: 26px;
 }
+
+.attackGifs{
+  background: url('../../assets/game-gifs/fight.gif');
+  background-color:transparent;
+  background-size: cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  z-index:100;
+  position:absolute;
+  top:0;
+  bottom:0;
+  right:0;
+  left:0;
+  transition: 1s;
+}
+
+.sheildGifs{
+ background: url('../../assets/game-gifs/shield.gif');
+  background-color:transparent;
+  background-size: cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  z-index:100;
+  position:absolute;
+  top:0;
+  bottom:0;
+  right:0;
+  left:0;
+  transition: 1s;
+}
+
