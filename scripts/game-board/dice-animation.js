@@ -4,7 +4,7 @@ let currentPlayer = 0;
 let lastDiceValue = 0;
 
 document.querySelector('.quit').onclick = () =>{
-    window.location.href = 'Team-project/game-lobby.html';
+    window.location.href = '/Team-project/game-lobby.html';
 }
 
 export let wonPlayers = [];
