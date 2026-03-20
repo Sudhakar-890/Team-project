@@ -1,190 +1,98 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+body{
+    background-image: url('../../assets/board-theme/background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 .board{
+    margin: 30px auto;
     border: 2px solid;
-    width: fit-content;
+    width: 348px;
+    height: 354px;
+    outline: 6px double #FFFFFF91;
 }
 .box{
     display: flex;
 }
 .redBox{
     border: 1px solid black;
-    width: 150px;
-    height: 150px;
+    width: 140px;
+    height: 140.7px;
     background-color:red;
 }
 .blueBox{
     border: 1px solid black;
-    width: 150px;
-    height: 150px;
+    width: 140px;
+    height: 140.7px;
     background-color:blue;
 }
 .greenBox{
     border: 1px solid black;
-    width: 150px;
-    height: 150px;
+    width: 140px;
+    height: 140px;
     background-color: green;
 }
 .yellowBox{
     border: 1px solid black;
-    width: 150px;
-    height: 150px;
+    width: 140px;
+    height: 140px;
     background-color: yellow;
 }
 .whiteBox{
     border: 1px solid;
-    width: 100px;
-    height: 100px;
+    width: 95px;
+    height: 95px;
     background-color: white ;
     margin :15% auto;
     border-radius: 10px;
 }
-.redCircle1{
+.redCircle1,.redCircle2,.redCircle3,.redCircle4{
       border-radius: 50%;
-      width: 25px;
-      height: 25px;
+      width: 23px;
+      height: 23px;
       float: left;
       margin: 11px;
       border: 1px solid black;
       background-color: red;
 }
-.redCircle2{
-    border-radius: 50%;
-    width: 25px;
-    height: 25px;
-    float: left;
-    margin: 11px;
-    border: 1px solid black;
-    background-color: red;
-}
-.redCircle3{
-    border-radius: 50%;
-    width: 25px;
-    height: 25px;
-    float: left;
-    margin: 11px;
-    border: 1px solid black;
-    background-color: red;
-}
-.redCircle4{
-    border-radius: 50%;
-    width: 25px;
-    height: 25px;
-    float: left;
-    margin: 11px;
-    border: 1px solid black;
-    background-color: red;
-}
-.blueCircle1{
+.blueCircle1,.blueCircle2,.blueCircle3,.blueCircle4{
       border-radius: 50%;
-      width: 25px;
-      height: 25px;
+      width: 23px;
+      height: 23px;
       float: left;
       margin: 11px;
       border: 1px solid black;
       background-color: blue;
 }
-.blueCircle2{
-    border-radius: 50%;
-    width: 25px;
-    height: 25px;
-    float: left;
-    margin: 11px;
-    border: 1px solid black;
-    background-color: blue;
-}
-.blueCircle3{
-    border-radius: 50%;
-    width: 25px;
-    height: 25px;
-    float: left;
-    margin: 11px;
-    border: 1px solid black;
-    background-color: blue;
-}
-.blueCircle4{
-    border-radius: 50%;
-    width: 25px;
-    height: 25px;
-    float: left;
-    margin: 11px;
-    border: 1px solid black;
-    background-color: blue;
-}
-.greenCircle1{
+.greenCircle1,.greenCircle2,.greenCircle3,.greenCircle4{
       border-radius: 50%;
-      width: 25px;
-      height: 25px;
+      width: 23px;
+      height: 23px;
       float: left;
       margin: 11px;
       border: 1px solid black;
       background-color: green;
 }
-.greenCircle2{
-    border-radius: 50%;
-    width: 25px;
-    height: 25px;
-    float: left;
-    margin: 11px;
-    border: 1px solid black;
-    background-color: green;
-}
-.greenCircle3{
-    border-radius: 50%;
-    width: 25px;
-    height: 25px;
-    float: left;
-    margin: 11px;
-    border: 1px solid black;
-    background-color: green;
-}
-.greenCircle4{
-    border-radius: 50%;
-    width: 25px;
-    height: 25px;
-    float: left;
-    margin: 11px;
-    border: 1px solid black;
-    background-color: green;
-}
-.yellowCircle1{
+.yellowCircle1,.yellowCircle2,.yellowCircle3,.yellowCircle4{
       border-radius: 50%;
-      width: 25px;
-      height: 25px;
+      width: 23px;
+      height: 23px;
       float: left;
       margin: 11px;
       border: 1px solid black;
       background-color: yellow;
 }
-.yellowCircle2{
-    border-radius: 50%;
-    width: 25px;
-    height: 25px;
-    float: left;
-    margin: 11px;
-    border: 1px solid black;
-    background-color: yellow;
-}
-.yellowCircle3{
-    border-radius: 50%;
-    width: 25px;
-    height: 25px;
-    float: left;
-    margin: 11px;
-    border: 1px solid black;
-    background-color: yellow;
-}
-.yellowCircle4{
-    border-radius: 50%;
-    width: 25px;
-    height: 25px;
-    float: left;
-    margin: 11px;
-    border: 1px solid black;
-    background-color: yellow;
-}
 .cell{
-    width: 23.8px;
-    height: 23.8px;
+    width: 23px;
+    height: 23.4px;
     border: 1px solid black;
+    background-color: white;
 }
 .red{
     background-color:red;
@@ -199,11 +107,11 @@
     background-color:green;
 }
 .star{
-    background-image: url(assets);
+    background-image: url('../../assets/board-theme/star.svg');
 }
 .center{
-    border-bottom: 38px solid green;
-    border-left: 38px solid red ;
-    border-top: 38px solid blue;
-    border-right: 38px solid yellow
+    border-bottom: 35px solid green;
+    border-left: 35px solid red ;
+    border-top: 35px solid blue;
+    border-right: 34px solid yellow
 }
