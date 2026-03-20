@@ -1,0 +1,131 @@
+.centerBody{
+  width: 100%;
+  height:80px;
+}
+
+.container{
+  width: 100%;
+  display: flex;
+  white-space: nowarp;
+  justify-content: flex-start;
+  padding-left: 20px;
+  gap: 15px;
+  cursor: pointer;
+  overflow-x: auto;
+  margin-top:20px;
+}
+
+.container button{
+  background-color:#010853;
+  color: #ffffff;
+  border: 0.1px white solid;
+  padding: 4px 15px;
+  border-radius: 8px; 
+  cursor: pointer;
+  font-size: 15px;
+  transition: 0.4s;
+  font-family:sans-serif;
+  width:min-content;
+}
+
+button:hover{
+  background: yellow;
+  color: blue;
+}
+
+#date{
+  margin-top:15px;
+  width:100%;
+  text-align:center;
+}
+
+#date input{
+  margin-top:20px;
+  margin: 10px 10px 10px 10px;
+  width:90%;
+  background:#010853;
+  padding:10px;
+  color: white;
+  text-size-adjust: auto;
+  background-image: url('../../assets/date.png');
+  background-size:25px;
+  background-position: right 15px top 50%;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  border:1px solid white;
+}
+
+.applyBox{
+  margin-top:20px;
+  width:100%;
+  height:25px;
+  position: relative;
+  border-bottom:2px solid white;
+}
+
+#box{
+  background: #C3CE25;
+  position: absolute;
+  top:45%;
+  right:20px;
+  text-wrap: nowrap;
+  font-size:15px;
+  box-shadow: 4px 0px 10px rgba(128, 243, 33, 0.884),-4px 0px 10px rgba(128, 243, 33, 0.884);
+  border:none;
+  padding:5px 15px;
+
+}
+
+.main{
+  width:100%;
+  height: 60%;
+  margin-top:30px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+.boxHolder{
+  width:100%;
+  height:max-content;
+}
+
+.box{
+  width:90%;
+  height:100px;
+  display: flex;
+  flex-direction:column;
+  justify-content: space-between;
+  column-gap: 225px;
+  background: #2C3379;
+  color: #FFFB00;
+  border-color: rbg(0, 255, 255);
+  margin:10px auto;
+  box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.664);;
+}
+
+.top{
+  display:flex;
+  width:100%;
+  height:70%;
+  padding: 10px;
+  justify-content: space-between;
+  text-transform:capitalize;
+}
+
+.winnerCoin{
+  width:40px;
+  height:40px;
+}
+
+.bottom{
+  background-color: #9e9c05;
+  color:white;
+  height:40%;
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+
+
