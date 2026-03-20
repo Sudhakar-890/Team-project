@@ -4,11 +4,6 @@
     font-family: 'Times New Roman', Times, serif;
 }
 
-html{
-    width:100%;
-    height:100%;
-}
-
 body{
     background-image: url('../../assets/sign-in/background.png');
     background-repeat: no-repeat;
@@ -50,26 +45,33 @@ body{
 
 }
 #emailBar .mailBox{
-    width: 80%;
+    width: 75%;
     height: 40px;
         margin-top: 20px;
         border-radius: 10px 10px 10px 10px ;
         border: 2px violet solid;
         outline: 0px;
         font-size: 20px;
-        padding-left: 10px;
+        padding-left: 50px;
+        background-image:url('../../assets/sign-in/mail.png');
+    background-position:left 10px top 50%;
+    background-size: 25px;
+    background-repeat: no-repeat;
     
 }
 #passwordBar .passBox{
-    width: 80%;
+    width: 75%;
     height: 40px;
         margin-top: 18px;
         border-radius: 10px 10px 10px 10px ;
         border: 2px violet solid;
         outline: 0px;
         font-size: 20px;
-        padding-left: 10px;
-    
+        padding-left: 50px;
+        background-image:url('../../assets/sign-in/reset-password.png');
+    background-position:left 10px top 50%;
+    background-size: 25px;
+    background-repeat: no-repeat;
     
 }
 #forgotPart{
@@ -119,6 +121,10 @@ body{
         font-weight: bolder;
     font-size: 18px;
     background-color: white;
+    background-image:url('../../assets/sign-in/google.png');
+    background-position:left 15px top 50%;
+    background-size: 25px;
+    background-repeat: no-repeat;
     
 }
 .signfacebook{    width: 80%;
@@ -132,17 +138,22 @@ body{
     font-size: 18px;
     color: white;
     background: blue;
+background-image:url('../../assets/sign-in/facebook.png');
+    background-position:left 15px top 50%;
+    background-size: 30px;
+    background-repeat: no-repeat;
     
 }
 .accountText{
     display: inline-block;
     margin-left: 70px;
-    margin-top: 60px;
-    
+    margin-top: 30px;
+    margin-bottom:40px;
 }
 .signupText{
     display: inline-block;
     color:blue;
-        
-    
+    margin-left:10px;
+    font-weight:500;
+    text-decoration: none;
 }
