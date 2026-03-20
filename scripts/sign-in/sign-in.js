@@ -1,5 +1,9 @@
-document.querySelector('.signupText').addEventListener('click',navigatePage);
+document.querySelector('.signupText').onclick = ()=>{
+    window.location.href = '/sign-up.html';
+};
 
-function navigatePage(){
- window.location.href = '/sign-up.html';
-}
+document.querySelector('.signinButton').onclick = () => {
+    window.location.href = '/game-lobby.html';
+};
+
+
