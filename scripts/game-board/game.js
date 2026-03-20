@@ -1,7 +1,8 @@
 import { nextTurn } from "./dice-animation.js";
+import { wonPlayers } from "./dice-animation.js";
 
 const players = [
-    { coin0: 0, coin1: 0, coin2: 0, coin3: 0 },
+    { coin0: null, coin1: 51, coin2: null, coin3: 51 },
     { coin0: 0, coin1: 0, coin2: 0, coin3: 0 },
     { coin0: 0, coin1: 0, coin2: 0, coin3: 0 },
     { coin0: 0, coin1: 0, coin2: 0, coin3: 0 }
@@ -14,6 +15,8 @@ const home = [51,12,25,38];
 const safeBox = [1,9,14,22,27,35,40,48];
 const homeCoins = []
 
+let currentDice = 0;
+
 export function calculateMoves(playerIndex, diceValue) {
     const coinsNodeList = document.querySelectorAll(`.coin${playerIndex + 1}Img`);
     let coins = [0,1,2,3];
@@ -23,6 +26,7 @@ export function calculateMoves(playerIndex, diceValue) {
     })
 
     // diceValue=6;
+    currentDice = playerIndex;
 
     let movableCoins = [];
 
@@ -49,7 +53,7 @@ export function calculateMoves(playerIndex, diceValue) {
 
     // no coins to move
     if (movableCoins.length === 0) {
-        setTimeout(nextTurn, 800);
+        setTimeout(nextTurn(currentDice+1), 2000);
         return;
     }
 
@@ -71,15 +75,14 @@ export function calculateMoves(playerIndex, diceValue) {
             }
 
             clearSelection(playerIndex);
-            nextTurn();
-
         };
 
     });
 
     if (movableCoins.length === 1) {
         setTimeout(()=>{
-            document.querySelector('.selectCoin').click();
+            if (document.querySelector('.selectCoin'))
+            { document.querySelector('.selectCoin').click()};
         },800)
     }
 
@@ -103,6 +106,7 @@ function enterBoard(playerIndex, coinIndex) {
     players[playerIndex][coinName] = start;
     document.querySelector(`.index-${start}`).appendChild(coin);
     checkIndexBox(playerIndex,null,start);
+    nextTurn(0);
 }
 
 // move the onboard coin
@@ -115,8 +119,11 @@ async function moveCoin(playerIndex, coinIndex, diceValue) {
 
     const coinName = coinNames[coinIndex];
 
+    let isHomePath = false;
+
     if(homeCoins.includes(coin)){
         homePath(playerIndex, coin, diceValue);
+        nextTurn(currentDice+1);
         return;
     }
 
@@ -148,6 +155,7 @@ async function moveCoin(playerIndex, coinIndex, diceValue) {
 
             homeCoins.push(coin);
             homePath(playerIndex, coin, remainingSteps);
+            nextTurn(currentDice+1);
             return;
         }
 
@@ -163,6 +171,7 @@ async function moveCoin(playerIndex, coinIndex, diceValue) {
 
     checkIndexBox(playerIndex, current, next);
     checkAttack(playerIndex, next);
+    nextTurn(currentDice+1);
 }
 
 
@@ -211,7 +220,19 @@ function checkIndexBox(playerIndex, preBoxIndex, boxIndex) {
 
 function checkAttack(playerIndex, boxIndex){
     let box = document.querySelector(`.index-${boxIndex}`);
-    if (!box || safeBox.includes(boxIndex)) return;
+    if (!box) return false;
+
+    if (safeBox.includes(boxIndex)){
+        let sheild = document.createElement('span');
+        sheild.classList.add('sheildGifs');
+        box.appendChild(sheild);
+        setTimeout(()=>{
+            sheild.style.opacity = '0%';
+            setTimeout(() => sheild.remove(),300);
+        },1500)
+    }
+ 
+    let AboolCheck = false;
     
     function updateBoxUI(){
         const myCoin  = box.querySelectorAll(`.coin${playerIndex+1}Img`);
@@ -220,29 +241,34 @@ function checkAttack(playerIndex, boxIndex){
         else{
             players.forEach((player,i)=>{
                 if(playerIndex!=i){
-                    console.log('player :',i);
-                
                     let coinData = Object.entries(player);
                     coinData.forEach((coin,i2)=>{
                         if(coin[1]!==0){
-                            function updateBoxUI(){
+                            // function updateBoxUI(){
                             let enemyCoin = box.querySelectorAll(`.coin${i + 1}Img[data-coin="${i2}"]`);
-
-                            `.coin${i + 1}Img[data-coin="${i2}"]`
 
                             console.log(enemyCoin, i, i2)
                             if(enemyCoin.length!==0){
                                 const coinName = coinNames[i2];
                                 players[i][coinName] = 0;
-                                handleAttack(enemyCoin,i,i2);
+                                AboolCheck = true;
+                                const fight = document.createElement('span');
+                                fight.classList.add('attackGifs');
+                                box.appendChild(fight);
+
+                                setTimeout(() => {
+                                    fight.style.opacity = "0%";
+                                    setTimeout(() => fight.remove(),300);                                 
+                                    handleAttack(enemyCoin, i, i2);
+                                }, 1500);
+                                nextTurn(currentDice);
                             }
-                        }
-                        requestAnimationFrame(updateBoxUI);
                         }
                     }); 
                 }
             })
         }
+        return AboolCheck;
     }
 
     requestAnimationFrame(updateBoxUI);
@@ -289,6 +315,7 @@ async function homePath(playerIndex, coin, remainDiceValue) {
 
             players[playerIndex][coinName] = null;
             targetBox.appendChild(coin);
+            checkWon(playerIndex);
             return;
         }
 
@@ -312,3 +339,41 @@ function canMove(playerIndex, coinIndex, diceValue) {
     }
     return true;
 }
+
+
+// check won or not
+function checkWon(playerIndex) {
+    const player = Object.entries(players[playerIndex]);
+
+    let anyCoins = player.filter(coin => {
+        return coin[1] !== null;
+    });
+
+    if (anyCoins.length == 0) {
+        wonPlayers.push(playerIndex);
+        console.log('wonplayers',wonPlayers);
+        setTimeout(() => {
+            const overlay = document.querySelector('.overlay');
+            overlay.classList.add('triggeredOverlay');
+
+            const playerName = document.querySelector(`.player${playerIndex+1}`);
+            console.log(playerName)
+            
+            
+            let html = 
+                `
+                    <h1 class='wonOverlayText'>
+                        winner : <mark> ${playerName.textContent} </mark>
+                    </h1>
+                `;
+
+            overlay.insertAdjacentHTML('beforeend',html);
+            document.addEventListener('click',()=>{              
+                overlay.classList.remove('triggeredOverlay');
+                document.querySelector('.wonOverlayText').remove();
+            },{once : true});
+        }, 500)
+    }
+
+}
+

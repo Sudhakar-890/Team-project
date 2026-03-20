@@ -3,6 +3,8 @@ import { calculateMoves } from "./game.js";
 let currentPlayer = 0;
 let lastDiceValue = 0;
 
+export let wonPlayers = [];
+
 const diceSlots = document.querySelectorAll(".diceSlot");
 
 const diceHTML = `
@@ -20,11 +22,12 @@ const diceHTML = `
 
 renderDice();
 
-export function nextTurn() {
+export function nextTurn(inc) {
 
-    if (lastDiceValue !== 6) {
-        currentPlayer++;
+    if (lastDiceValue !== 6 ) {
+        currentPlayer=inc;
         if (currentPlayer > 3) currentPlayer = 0;
+        if (wonPlayers.includes(currentPlayer)) nextTurn(currentPlayer+1);
     }
     renderDice();
 
@@ -34,7 +37,7 @@ function renderDice() {
     diceSlots.forEach(s => s.innerHTML = "");
     diceSlots[currentPlayer].insertAdjacentHTML("afterbegin", diceHTML);
     const dice = diceSlots[currentPlayer].querySelector(".dice");
-    dice.addEventListener("click", rollDice,{once:true});
+    dice.addEventListener("click", rollDice);
     document.onkeydown = (event) =>{
         if(event.key==' '){
             event.key.preventDefault;
@@ -46,6 +49,7 @@ function renderDice() {
 function rollDice() {
     const dice = diceSlots[currentPlayer].querySelector(".dice");
     document.onkeydown = null;
+    dice.removeEventListener('click',rollDice);
     const random =  Math.floor(Math.random() * 6) + 1 ; 
     lastDiceValue = random;
 
@@ -84,6 +88,6 @@ function rollDice() {
     setTimeout(() => {
         // dice.style.animation = "";
         calculateMoves(currentPlayer, random);
-    }, 1200);
+    }, 1500);
 
 }
