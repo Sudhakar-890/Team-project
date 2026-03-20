@@ -3,6 +3,10 @@ import { calculateMoves } from "./game.js";
 let currentPlayer = 0;
 let lastDiceValue = 0;
 
+document.querySelector('.quit').onclick = () =>{
+    window.location.href = '/game-lobby.html';
+}
+
 export let wonPlayers = [];
 
 const diceSlots = document.querySelectorAll(".diceSlot");

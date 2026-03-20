@@ -1,6 +1,3 @@
-document.querySelector('.computerMatch').onclick = () =>{
-    window.location.href = '/computer.html';
-}
 
 document.addEventListener('click',(e)=>{
     if(e.target.closest('.gameHistory')){
@@ -13,6 +10,14 @@ document.addEventListener('click',(e)=>{
 
     if (e.target.closest('.themeBoard')) {
         window.location.href = '/board-theme.html';
+    }
+    
+    if(e.target.closest('.computerMatch')){
+        window.location.href = '/computer.html';
+    }
+    
+    if(e.target.closest('.localMatch')){
+        window.location.href = '/game-board.html';
     }
 })
 
