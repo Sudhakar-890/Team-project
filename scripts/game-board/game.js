@@ -1,8 +1,8 @@
-import { nextTurn } from "./dice-animation.js";
+import { nextTurn, wonPlayers } from "./dice-animation.js";
 
 const players = [
- { coin0: 0, coin1: 0, coin2: 0, coin3: 0 },
- { coin0: 0, coin1: 0, coin2: 0, coin3: 0 },
+ { coin0: 0, coin1: 0, coin2: 1, coin3: 0 },
+ { coin0: 0, coin1: 1, coin2: 0, coin3: 0 },
  { coin0: 0, coin1: 0, coin2: 0, coin3: 0 },
  { coin0: 0, coin1: 0, coin2: 0, coin3: 0 }
 ];
@@ -22,7 +22,7 @@ export async function calculateMoves(playerIndex, diceValue) {
   coins[id] = node;
  })
  
-// diceValue=4;
+ diceValue=4;
  
  let movableCoins = [];
  
@@ -221,7 +221,7 @@ function checkAttack(playerIndex, boxIndex) {
  
  if(!box) return false;
  
- if (safeBox.includes(boxIndex)){
+ if (!box || safeBox.includes(boxIndex)){
   let sheild = document.createElement('span');
   sheild.classList.add('sheildGifs');
   box.appendChild(sheild);
@@ -321,6 +321,7 @@ async function homePath(playerIndex, coin, remainDiceValue) {
    
    players[playerIndex][coinName] = null;
    targetBox.appendChild(coin);
+   checkWon(playerIndex);
    nextTurn(0);
    return true;
   }
@@ -344,4 +345,20 @@ function canMove(playerIndex, coinIndex, diceValue) {
   return (currentStep + diceValue) <= 6;
  }
  return true;
+}
+
+function checkWon(playerIndex){
+ const player = Object.entries(players[playerIndex]);
+ 
+ let anyCoins = player.filter(coin=>{
+  return coin[1] !==null;
+ });
+ 
+ if(anyCoins.length==0){
+  wonPlayers.push(playerIndex);
+  setTimeout(()=>{
+   const overlay = document.querySelector('overlay');
+  },1000)
+ }
+ 
 }

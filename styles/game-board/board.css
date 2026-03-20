@@ -335,3 +335,25 @@
   transition: 1s;
 }
 
+/*overlay*/
+
+.overlay{
+ position: absolute;
+ top:0;
+ bottom:0;
+ right:0;
+ left:0;
+ opacity: 0.7;
+ background-color:rgb(0,0,0);
+}
+
+.overlayContent{
+ position: absolute;
+ top:45%;
+ left:40%;
+ width:200px;
+ height:400px;
+ background-image:url('../../../assets/game-gifs/win.gif');
+}
+
+
