@@ -1,11 +1,286 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>game</title>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <title></title>
+ 
+ <!-- styles -->
+ <link rel="stylesheet" href="/styles/general.css">
+ <link rel="stylesheet" href="./styles/game-board/board.css">
+ <link rel="stylesheet" href="./styles/game-board/header.css">
+ <link rel="stylesheet" href="./styles/game-board/main.css">
+ <link rel="stylesheet" href="./styles/game-board/dice.css">
 </head>
+
 <body>
-    section
+ <header>
+  <section class="gameHeader">
+   <div class="quit">
+    <img src="./assets/game-board/quit.png" alt="quit">
+   </div>
+   <div class="title-logo">
+    <img src="./assets/animated-logos/title-logo.png" />
+   </div>
+   <div class="chat">
+    <img src="./assets/game-board/chat.png" alt="chat">
+   </div>
+  </section>
+ </header>
+ <main>
+  <div class="player1 player">
+   <div class="playerProfile">
+    <img src="./assets/game-board/player-avatars/chicken.png">
+   </div>
+   <div class="playerAction">
+    <p class="playerName">player1</p>
+    <div class="diceSlot">
+     <!-- dice -->
+    </div>
+   </div>
+  </div>
+  
+  <div class="player2 player">
+   <div class="playerProfile">
+    <img src="./assets/game-board/player-avatars/rabbit.png">
+   </div>
+   <div class="playerAction">
+    <p class="playerName">player2</p>
+    <div class="diceSlot">
+     <!-- dice -->
+    </div>
+   </div>
+  </div>
+  <section id="board">
+   <!-- top -->
+   <div class="top">
+    <!-- 2nd quadrant -->
+    <div id="quadrant2" class="redBox">
+     <div class="box2">
+      <div class="coin2 coinRed">
+       <img class="coin2Img" data-coin="0" src="./assets/coins/red-coin.png">
+      </div>
+      <div class="coin2 coinRed">
+       <img class="coin2Img" data-coin="1" src="./assets/coins/red-coin.png">
+      </div>
+      <div class="coin2 coinRed">
+       <img class="coin2Img" data-coin="2" src="./assets/coins/red-coin.png">
+      </div>
+      <div class="coin2 coinRed">
+       <img class="coin2Img" data-coin="3" src="./assets/coins/red-coin.png">
+      </div>
+     </div>
+    </div>
+    
+    <!-- top board -->
+    <div class="top-board">
+     
+     <div class="q3-end index-24"></div>
+     <div class="q3-end index-23"></div>
+     <div class="q3-end safeBox index-22"></div>
+     <div class="q3-end index-21"></div>
+     <div class="q3-end index-20"></div>
+     <div class="q3-end index-19"></div>
+     
+     <div class="q3-home q3-25 index-25"></div>
+     <div class="q3-home h3-Index-1" data-home="1"></div>
+     <div class="q3-home h3-Index-2" data-home="2"></div>
+     <div class="q3-home h3-Index-3" data-home="3"></div>
+     <div class="q3-home h3-Index-4" data-home="4"></div>
+     <div class="q3-home h3-Index-5" data-home="5"></div>
+     
+     <div class="q3-start index-26"></div>
+     <div class="q3-start q3-origin safeBox index-27"></div>
+     <div class="q3-start index-28"></div>
+     <div class="q3-start index-29"></div>
+     <div class="q3-start index-30"></div>
+     <div class="q3-start index-31"></div>
+     
+    </div>
+    
+    <!-- 3rd quadrant -->
+    <div id="quadrant3" class="blueBox">
+     <div class="box3">
+      <div class="coin3 coinBlue">
+       <img class="coin3Img" data-coin="0" src="./assets/coins/blue-coin.png">
+      </div>
+      <div class="coin3 coinBlue">
+       <img class="coin3Img" data-coin="1" src="./assets/coins/blue-coin.png">
+      </div>
+      <div class="coin3 coinBlue">
+       <img class="coin3Img" data-coin="2" src="./assets/coins/blue-coin.png">
+      </div>
+      <div class="coin3 coinBlue">
+       <img class="coin3Img" data-coin="3" src="./assets/coins/blue-coin.png">
+      </div>
+     </div>
+    </div>
+   </div>
+   
+   
+   <!-- middle -->
+   <div class="middle">
+    
+    <!-- left -->
+    <div class="leftBoard">
+     
+     <div class="q2-start index-13"></div>
+     <div class="q2-start q2-origin safeBox index-14"></div>
+     <div class="q2-start index-15"></div>
+     <div class="q2-start index-16"></div>
+     <div class="q2-start index-17"></div>
+     <div class="q2-start index-18"></div>
+     
+     <div class="q2-home q2-12 index-12"></div>
+     <div class="q2-home h2-Index-1" data-home="1"></div>
+     <div class="q2-home h2-Index-2" data-home="2"></div>
+     <div class="q2-home h2-Index-3" data-home="3"></div>
+     <div class="q2-home h2-Index-4" data-home="4"></div>
+     <div class="q2-home h2-Index-5" data-home="5"></div>
+     
+     <div class="q2-end index-11"></div>
+     <div class="q2-end index-10"></div>
+     <div class="q2-end safeBox index-9"></div>
+     <div class="q2-end index-8"></div>
+     <div class="q2-end index-7"></div>
+     <div class="q2-end index-6"></div>
+     
+    </div>
+    <!-- home -->
+    <div class="homeContainer">
+     <div class="q2-home-origin"></div>
+     <div class="q3-home-origin"></div>
+     <div class="q1-home-origin"></div>
+     <div class="q4-home-origin"></div>
+     
+    </div>
+    
+    <!-- right -->
+    <div class="rightBoard">
+     
+     <div class="q4-end index-32"></div>
+     <div class="q4-end index-33"></div>
+     <div class="q4-end index-34"></div>
+     <div class="q4-end safeBox index-35"></div>
+     <div class="q4-end index-36"></div>
+     <div class="q4-end index-37"></div>
+     
+     <div class="q4-home h4-Index-5" data-home="5"></div>
+     <div class="q4-home h4-Index-4" data-home="4"></div>
+     <div class="q4-home h4-Index-3" data-home="3"></div>
+     <div class="q4-home h4-Index-2" data-home="2"></div>
+     <div class="q4-home h4-Index-1" data-home="1"></div>
+     <div class="q4-home q4-38 index-38"></div>
+     
+     <div class="q4-start index-44"></div>
+     <div class="q4-start index-43"></div>
+     <div class="q4-start index-42"></div>
+     <div class="q4-start index-41"></div>
+     <div class="q4-start q4-origin safeBox index-40"></div>
+     <div class="q4-start index-39"></div>
+     
+    </div>
+   </div>
+   
+   <!-- bottom -->
+   <div class="bottom">
+    <!-- 1st quadrant -->
+    <div id="quadrant1" class="greenBox">
+     <div class="box1">
+      <div class="coin1 coinGreen">
+       <img class="coin1Img" data-coin="0" src="./assets/coins/green-coin.png">
+      </div>
+      <div class="coin1 coinGreen">
+       <img class="coin1Img" data-coin="1" src="./assets/coins/green-coin.png">
+      </div>
+      <div class="coin1 coinGreen">
+       <img class="coin1Img" data-coin="2" src="./assets/coins/green-coin.png">
+      </div>
+      <div class="coin1 coinGreen">
+       <img class="coin1Img" data-coin="3" src="./assets/coins/green-coin.png">
+      </div>
+     </div>
+    </div>
+    
+    <!-- bottom board -->
+    <div class="bottom-board">
+     
+     <div class="q1-start index-5"></div>
+     <div class="q1-start index-4"></div>
+     <div class="q1-start index-3"></div>
+     <div class="q1-start index-2"></div>
+     <div class="q1-start q1-origin safeBox index-1"></div>
+     <div class="q1-start index-52"></div>
+     
+     <div class="q1-home h1-Index-5" data-home='5'></div>
+     <div class="q1-home h1-Index-4" data-home="4"></div>
+     <div class="q1-home h1-Index-3" data-home="3"></div>
+     <div class="q1-home h1-Index-2" data-home="2"></div>
+     <div class="q1-home h1-Index-1" data-home="1"></div>
+     <div class="q1-home q1-51 index-51"></div>
+     
+     <div class="q1-end index-45"></div>
+     <div class="q1-end index-46"></div>
+     <div class="q1-end index-47"></div>
+     <div class="q1-end safeBox index-48"></div>
+     <div class="q1-end index-49"></div>
+     <div class="q1-end index-50"></div>
+    </div>
+    
+    <!-- 4rd quadrant -->
+    <div id="quadrant4" class="yellowBox">
+     <div class="box4">
+      <div class="coin4 coinYellow">
+       <img class="coin4Img" data-coin="0" src="./assets/coins/yellow-coin.png">
+      </div>
+      <div class="coin4 coinYellow">
+       <img class="coin4Img" data-coin="1" src="./assets/coins/yellow-coin.png">
+      </div>
+      <div class="coin4 coinYellow">
+       <img class="coin4Img" data-coin="2" src="./assets/coins/yellow-coin.png">
+      </div>
+      <div class="coin4 coinYellow">
+       <img class="coin4Img" data-coin="3" src="./assets/coins/yellow-coin.png">
+      </div>
+     </div>
+    </div>
+   </div>
+  </section>
+  
+  <div class="player3 player">
+   <div class="playerProfile">
+    <img src="./assets/game-board/player-avatars/panda.png">
+   </div>
+   <div class="playerAction">
+    <p class="playerName">player3</p>
+    <div class="diceSlot">
+     <!-- dice -->
+    </div>
+   </div>
+  </div>
+  
+  <div class="player4 player">
+   <div class="playerProfile">
+    <img src="./assets/game-board/player-avatars/fox.png">
+   </div>
+   <div class="playerAction">
+    <p class="playerName">player4</p>
+    <div class="diceSlot">
+     <!-- dice -->
+    </div>
+   </div>
+  </div>
+ </main>
+
+ <div class="overlay">
+    <!-- black overlay -->
+     <div class="overlayContent">
+
+     </div>
+ </div>
+ 
+ <script src="./scripts/game-board/dice-animation.js" type="module"></script>
 </body>
+
 </html>

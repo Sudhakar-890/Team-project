@@ -1,0 +1,57 @@
+body{
+    padding:20px;
+}
+
+.diceContainer{
+    perspective:1000px;
+    width:100px;
+    height:100px;
+}
+
+.dice{
+    /* overflow-x: hidden; */
+    width:100%;
+    height:100%;
+    position:relative;
+    transform-style: preserve-3d;
+    transition:transform 1.5s ease-out;
+    transform-origin: center;
+}
+.dice div{
+    width:100%;
+    height:100%;
+    position:absolute;
+    backface-visibility: hidden;
+    border-radius: 10px;background-color: sienna;
+}
+
+.dice div img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display:block;
+}
+
+.face1{
+    transform: translateZ(50px);
+}
+
+.face4{
+    transform: rotateY(180deg) translateZ(50px);  
+}
+
+.face2{
+    transform: rotateY(90deg) translateZ(50px);
+}
+
+.face3{
+    transform: rotateY(-90deg) translateZ(50px);
+}
+
+.face5{
+    transform: rotateX(90deg) translateZ(50px);
+}
+
+.face6{
+    transform:rotateX(-90deg) translateZ(50px);
+}

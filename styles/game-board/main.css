@@ -1,0 +1,76 @@
+main{
+    width:100%;
+    height:100%;
+}
+
+.player1, .player2, .player3, .player4{
+    width:40%;
+    height:90px;
+    border-radius: 10px;
+    box-shadow:inset -5px -5px 10px rgba(0,0,0,0.6),
+    inset 5px 5px 10px rgba(226, 220, 220, 0.733);
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+}
+
+.player1{
+    bottom:10px;
+    left:20px;
+    background-color: rgb(48, 224, 48);
+}
+
+.player2 {
+    top: 80px;
+    left: 20px;
+    background-color:orangered;
+    color:white;
+}
+
+.player3 {
+    top: 80px;
+    right: 20px;
+    background-color: blue;
+    color:white;
+}
+
+.player4 {
+    bottom: 10px;
+    right: 20px;
+    background-color: yellow;
+}
+
+.playerProfile{
+    padding:15px;
+    width:50%;
+    height: 100%;
+}
+
+.playerProfile img{
+    width:100%;
+    height:80%;
+    border-radius:50%;
+    box-shadow:0px 0px 10px rgba(0,0,0,0.8);
+}
+
+.playerAction{
+    width:50%;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    gap:5px;
+}
+
+.playerName{
+    font-size:10px;
+}
+
+.diceSlot{
+    width:40px;
+    height:40px;
+    background:white;
+    border-radius: 5px;
+}
