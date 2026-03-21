@@ -2,7 +2,7 @@ import { nextTurn } from "./dice-animation.js";
 import { wonPlayers } from "./dice-animation.js";
 
 const players = [
-    { coin0: null, coin1: 51, coin2: null, coin3: 51 },
+    { coin0: 0, coin1: 0, coin2: 0, coin3: 0 },
     { coin0: 0, coin1: 0, coin2: 0, coin3: 0 },
     { coin0: 0, coin1: 0, coin2: 0, coin3: 0 },
     { coin0: 0, coin1: 0, coin2: 0, coin3: 0 }
