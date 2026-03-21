@@ -1,0 +1,156 @@
+body {
+    background-image: url('/assets/images/background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+}
+
+.text {
+    color: white;
+    margin: 30px 0px 15px;
+}
+
+.miniback {
+    height: 590px;
+    width: 92%;
+    margin-bottom: 50px;
+    border: 4px rgb(210, 210, 231) solid;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.container {
+    background-image: url('/assets/images/overall.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    padding:10px;
+}
+
+.selectPlayerText{
+    padding-top: 30px;
+    color:wheat;
+    text-decoration:underline;
+}
+
+.playersContainer{
+    width:100%;
+    height: min-content;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    padding:0px;
+    padding-top:40px;
+    gap:20px;
+}
+
+.playersContainer>div{
+    text-align: left;
+    width:100%;
+    height:100%;
+    background-color: #acacc9;
+    border-radius:20px;
+}
+
+.playersContainer .avatar,.playersContainer .coin{
+    width:30px;
+    height:30px;
+    display: inline-block;
+    margin: 5px 5px 0px;
+}
+
+.avatar img, .coin img{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px grey groove;
+}
+
+.playersContainer .playerName{
+    width:100%;
+    height: 30px;
+    background-color: #494ceb;
+    border-radius: 20px;
+    padding:5px;
+    text-align: center;
+    margin-top:8px;
+    color:white;
+}
+
+
+/* after match */
+
+.text2 {
+    color: rgb(255, 0, 0);
+    margin-top: 60px;
+    text-decoration: underline;
+    font-size:23px;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    margin-top: 5px;
+}
+
+.b1 {
+    width: 90px;
+    height: 40px;
+    background-color: rgba(70, 62, 102, 0.452);
+    color: white;
+    border-radius: 10px 0 0 10px;
+    font-family: bold;
+    font-weight: 900;
+    font-size: 20px;
+}
+
+.b2 {
+    width: 90px;
+    height: 40px;
+    color: white;
+    font-family: bold;
+    font-weight: 900;
+    font-size: 20px;
+    background-color: rgba(70, 62, 102, 0.5);
+}
+
+.b3 {
+    width: 90px;
+    height: 40px;
+    background-color: rgba(70, 62, 102, 0.466);
+    color: white;
+    border-radius: 0 10px 10px 0;
+    font-family: bold;
+    font-weight: 900;
+    font-size: 20px;
+}
+
+
+.play {
+    background-color: rgb(34, 179, 34);
+    color: white;
+    width: 50%;
+    margin-top: 40px;
+    height: 45px;
+    border-radius: 10px;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.cancel {
+    display: block;
+    background-color: #E53935;
+    color: white;
+    width: 100px;
+    height: 35px;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 20px;
+    margin-top: 25px;
+}
