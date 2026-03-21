@@ -3,7 +3,7 @@ background-image:url('../../assets/sign-up/background.jpg');
 background-repeat:no-repeat;
 background-size:cover;
 background-position: center;
-height:100%;
+min-height: 100vh;
 width:100%;
 }
 
@@ -33,12 +33,12 @@ width:100%;
 
 .inputbox{
   display:block;
-  width:240px;
+  width:300px;
   height: 40px;
   margin:10px 0px;
   border:1px solid rgb(54, 155, 76);
   border-radius: 7px;
-  font-size: 17px;
+  font-size: 14px;
   outline: none;
   padding-left: 50px;
   }
