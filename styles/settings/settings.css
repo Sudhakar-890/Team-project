@@ -1,0 +1,134 @@
+body{
+    background-image: url('../../assets/background.png');
+    background-position:center;
+    background-size:cover;
+    background-repeat:no-repeat;
+    width:100%;
+    min-height:100vh;
+    color:white;
+    overflow-x:hidden;
+    overflow-y:scroll;
+}
+
+.overlay{
+    background-color: rgba(36, 38, 58, 0.048);
+    position: absolute;
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+    z-index:-1;
+}
+
+.header{
+    height:70px;
+    width:100%;
+    display: flex;
+    justify-content:flex-end;
+    align-items: center;
+    padding-right: 20px;
+    gap:80px;
+    margin-bottom: 30px;
+}
+
+.logoutBox{
+    width:34px;
+    height:100%;
+    padding:5px;
+}
+
+.logoutBox img{
+    width:100%;
+    height: 100%;
+    object-fit: contain;
+    filter: invert(100%);
+    margin-top: 3px;
+}
+
+.main{
+    display:flex;
+    flex-direction:column;
+    justify-content: start;
+    align-items: center;
+    gap:20px;
+    width: 100%;
+    height:max-content;
+    overflow-y:scroll;
+    padding-bottom:40px;
+}
+
+.division1, .division2, .division3{
+    width:95%;
+    background-color:rgba(7, 51, 117, 0.445);
+    text-align: center;
+    padding:10px;
+    font-size:larger;
+    font-size:20px;
+    font-weight:900;
+    box-shadow: inset -5px -5px 10px rgba(255, 255, 255, 0.5);
+}
+
+.boxes{
+    width: 85%;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(118, 134, 163, 0.699);
+    padding:8px 10px;
+    box-shadow: inset -5px -5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.changeLanguage{
+    padding:5px 10px;
+    border-radius:10px;
+    background-color:aquamarine;
+    border: none;
+}
+
+.toggle{
+    width:15%;
+    height:20px;
+    background-color:aquamarine;
+    border-radius:20px;
+    padding:1px;
+}
+
+.togglerCircle{
+    width:18px;
+    height:18px;
+    background-color: midnightblue;
+    border-radius: 50%;
+}
+
+.toggle:hover .togglerCircle{
+    animation: toggleIt 1s linear;
+}
+
+@keyframes toggleIt{
+    from{
+        transform:translateX(0px);
+    }
+    to{
+        transform:translateX(25px);
+    }
+}
+
+.instagram, .facebook{
+    width:12%;
+    height:100%;
+}
+
+.instagram img, .facebook img{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+}
+
+.boxes p{
+    padding-left:100px;
+    color:rgb(252, 211, 136);
+}
+
+.boxes:last-child{
+    background-color: brown;
+}
