@@ -2,7 +2,7 @@ import { nextTurn } from "./dice-animation.js";
 import { wonPlayers } from "./dice-animation.js";
 
 const players = [
-    { coin0: 0, coin1: 0, coin2: 0, coin3: 0 },
+    { coin0: null, coin1: null, coin2: null, coin3: 46 },
     { coin0: 0, coin1: 0, coin2: 0, coin3: 0 },
     { coin0: 0, coin1: 0, coin2: 0, coin3: 0 },
     { coin0: 0, coin1: 0, coin2: 0, coin3: 0 }
@@ -13,7 +13,7 @@ const coinNames = ["coin0", "coin1", "coin2", "coin3"];
 const origin = [1, 14, 27, 40];
 const home = [51,12,25,38];
 const safeBox = [1,9,14,22,27,35,40,48];
-const homeCoins = []
+const homeCoins = [];
 
 let currentDice = 0;
 
@@ -363,7 +363,7 @@ function checkWon(playerIndex) {
             let html = 
                 `
                     <h1 class='wonOverlayText'>
-                        winner : <mark> ${playerName.textContent} </mark>
+                        winner : <mark> ${playerName.innerText} </mark>
                     </h1>
                 `;
 
@@ -371,6 +371,7 @@ function checkWon(playerIndex) {
             document.addEventListener('click',()=>{              
                 overlay.classList.remove('triggeredOverlay');
                 document.querySelector('.wonOverlayText').remove();
+                nextTurn(1);
             },{once : true});
         }, 500)
     }

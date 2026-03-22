@@ -386,3 +386,10 @@
     filter: grayscale(60%) brightness(60%);
     pointer-events: none;
 }
+
+/* resize pawn */
+
+.pawnSize{
+    width:18px;
+    margin:0px 3px;
+}

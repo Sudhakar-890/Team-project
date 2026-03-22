@@ -90,6 +90,11 @@ function changePlayerCoins(){
             else if (i === 3) {
                 coin.setAttribute('src', `./assets/coins/yellow-${imgString}.png`);
             }
+
+
+            if (coinSelect === 1) {
+                coin.classList.add('pawnSize');
+            }
         })
     }
 }

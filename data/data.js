@@ -55,4 +55,23 @@ export function changeCoinSelect(option){
     coinSelect = JSON.parse(localStorage.getItem('coinSelect')) || 0;
 }
 
+// history
+
+export const history = JSON.parse(localStorage.getItem('history')) || [];
+const coins = ['green', 'red', 'blue', 'yellow'];
+
+export function saveHistory(playerIndex, playerName, coinStyle, playerCount, time, date) {
+    history.unshift({
+        index: playerIndex,
+        name: playerName,
+        coin: coinStyle ? 'pawn' : 'coin',
+        coinColor: coins[playerIndex],
+        count: playerCount,
+        time: time,
+        date: date
+    });
+    localStorage.setItem('history', JSON.stringify(history));
+    return history;
+}
+
 
