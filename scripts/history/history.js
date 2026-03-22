@@ -20,7 +20,7 @@ function buildHistoryHtml(){
 
     else{
         history.forEach((h, i) => {
-            html =
+            html +=
                 `
         <div class="box box-${i}">
             <div class="top">
