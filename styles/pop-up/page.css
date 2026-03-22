@@ -1,0 +1,50 @@
+.popup-content{
+  background: #101C99;
+  width: 300px;
+  padding: 20px;
+  margin: 250px auto;
+  border-radius: 10px;
+  color:white;
+}
+
+#logoutPopup{
+  display:none;
+  position:absolute;
+  top:0%;
+  left:10%;
+}
+
+#deletePopup{
+  display:none;
+    position: absolute;
+    top: 25%;
+    left:10%;
+
+}
+
+.showOverlay{
+  background-color: rgba(0,0,0,0.6) !important;
+  z-index:1000 !important;
+}
+
+.showPopup{
+  display:block !important;
+}
+
+.yes{
+  display: inline-block;
+  padding: 8px 15px;
+  margin-top: 20px;
+  background: green;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+.no{
+  margin-top: 15px;
+  padding: 8px 15px;
+  background: red;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}

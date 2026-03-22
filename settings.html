@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,58 +8,65 @@
 
     <link rel="stylesheet" href="./styles/general.css">
     <link rel="stylesheet" href="./styles/settings/settings.css">
+    <link rel="stylesheet" href="./styles/pop-up/page.css">
 </head>
+
 <body>
-        <div class="header">
-            <h1>settings</h1>
-            <div class="logoutBox"><img src="./assets/settings/logout.png"></div>
+    <div class="header">
+        <h1>settings</h1>
+        <div class="logoutBox"><img src="./assets/settings/logout.png"></div>
+    </div>
+    <div class="main">
+        <div class="division1">
+            Game Options
         </div>
-        <div class="main">
-            <div class="division1">
-                Game Options
+        <div class="boxes">
+            language
+            <button class="changeLanguage">
+                change
+            </button>
+        </div>
+        <div class="boxes">
+            sound effects
+            <div class="toggle">
+                <div class="togglerCircle"></div>
             </div>
-            <div class="boxes">
-                language
-                <button class="changeLanguage">
-                    change
-                </button>
+        </div>
+        <div class="boxes">
+            vibration
+            <div class="toggle">
+                <div class="togglerCircle"></div>
             </div>
-            <div class="boxes">
-                sound effects
-                <div class="toggle">
-                    <div class="togglerCircle"></div>
-                </div>
+        </div>
+        <div class="boxes">
+            chat messages
+            <div class="toggle">
+                <div class="togglerCircle"></div>
             </div>
-            <div class="boxes">
-                vibration
-                <div class="toggle">
-                    <div class="togglerCircle"></div>
-                </div>
+        </div>
+        <br>
+        <div class="division2">
+            Social
+        </div>
+        <div class="boxes">
+            Instagram
+            <p>follow us !</p>
+
+
+            <div class="instagram">
+                <a href="https://www.instagram.com/sudhakar_cs_/" target="_blank">
+                <img src="./assets/settings/instagram.png">
+                </a>
             </div>
-            <div class="boxes">
-                chat messages
-                <div class="toggle">
-                    <div class="togglerCircle"></div>
-                </div>
+
+        </div>
+        <div class="boxes">
+            Facebook
+            <p>follow us !</p>
+            <div class="facebook">
+                <img src="./assets/settings/facebook.png">
             </div>
-            <br>
-            <div class="division2">
-                Social
-            </div>
-            <div class="boxes">
-                Instagram
-                <p>follow us !</p>
-                <div class="instagram">
-                    <img src="./assets/settings/instagram.png">
-                </div>
-            </div>
-            <div class="boxes">
-                Facebook
-                <p>follow us !</p>
-                <div class="facebook">
-                    <img src="./assets/settings/facebook.png">
-                </div>
-            </div>
+        </div>
             <br>
             <div class="division3">
                 Info
@@ -72,13 +80,33 @@
             <div class="boxes">
                 Privacy Policy
             </div>
-            <div class="boxes">
+            <div class="boxes deleteBox">
                 Delete Account
+            </div>
+            <div class="overlay">
+                <div id="logoutPopup">
+                    <div class="popup-content">
+                        <h2>Exit</h2>
+                        <p>Are you sure you want to logout?</p>
+                        <a class="no">cancel</a>
+                        <a class="yes">logout</a>
+
+                    </div>
+                </div>
+                <div id="deletePopup">
+                    <div class="popup-content">
+                        <h2>Exit</h2>
+                        <p>Are you sure you want to delete your account?</p>
+
+                        <a class="no">cancel</a>
+                        <a class="yes">delete</a>
+                    </div>
+                </div>
             </div>
         </div>
 
-    <div class="overlay">
 
-    </div>
+        <script src="./scripts/settings/settings.js"></script>
 </body>
+
 </html>
