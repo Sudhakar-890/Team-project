@@ -119,5 +119,5 @@ function prepareGame(){
 
     fetchPlayerNames(nameList);
 
-    setTimeout(()=>window.location.href = '/game-board.html',500);
+    setTimeout(()=>window.location.href = 'game-board.html',500);
 }

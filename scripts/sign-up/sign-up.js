@@ -35,7 +35,7 @@ function createAccount() {
                     console.log(user)
                     saveCurrentUser(user)
                     saveNewUser(user);
-                    setTimeout(()=>window.location.href = '/game-lobby.html',500);
+                    setTimeout(()=>window.location.href = 'game-lobby.html',500);
                 }
                 else {
                     window.alert("Password doesn't match");

@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded',()=>{
             if (verify.length ==1) {
                 email.value = '';
                 password.value = '';
-                window.location.href = '/game-lobby.html';
+                window.location.href = 'game-lobby.html';
             }
 
             else {
