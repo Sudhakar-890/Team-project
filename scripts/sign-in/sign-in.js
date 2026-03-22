@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded',()=>{
             if (verify.length ==1) {
                 email.value = '';
                 password.value = '';
-                window.location.href = '/Team-project/game-lobby.html';
+                window.location.href = 'https://sudhakar-890.github.io/Team-project/game-lobby.html';
             }
 
             else {
