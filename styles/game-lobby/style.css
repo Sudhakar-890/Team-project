@@ -1,5 +1,5 @@
 body{
-background-image:url('/assets/images/background.png');
+background-image:url('../../assets/images/background.png');
 background-repeat:no-repeat;
 background-size:cover;
 background-position:center;
@@ -22,7 +22,7 @@ height:100%;
 }
 
 .container{
-  background-image:url('/assets/images/overall.jpg');
+  background-image:url('../../assets/images/overall.jpg');
   background-repeat:no-repeat;
   background-size:cover;
   background-position:center;

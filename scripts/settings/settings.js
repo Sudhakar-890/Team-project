@@ -20,7 +20,7 @@ function showPopupFunc(){
 
     yes.forEach((yesBtn)=>{
         yesBtn.onclick = () =>{
-            window.location.href = '/';
+            window.location.href = 'index.html';
         }
     });
 
@@ -49,7 +49,7 @@ function showPopupFunc2(){
             });
             console.log(newUserData)
             console.log(deleteAccount(newUserData));
-            setTimeout(()=>window.location.href = '/',500);
+            setTimeout(()=>window.location.href = 'index.html',500);
         }
     });
     no.forEach((noBtn) => {
