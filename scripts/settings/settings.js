@@ -1,3 +1,5 @@
+import { deleteAccount,userData,currentUser } from "../../data/data.js";
+
 const logoutBox = document.querySelector('.logoutBox img')
 const deleteBox = document.querySelector('.deleteBox')
 
@@ -6,27 +8,28 @@ const deletePopup = document.querySelector('#deletePopup');
 const logoutPopup = document.querySelector('#logoutPopup');
 
 const yes = document.querySelectorAll('.yes');
-const no = document.querySelectorAll('.no')
+const no = document.querySelectorAll('.no');
 
 logoutBox.addEventListener('click', showPopupFunc);
-deleteBox.addEventListener('click', showPopupFunc2) 
+deleteBox.addEventListener('click', showPopupFunc2);
 
 function showPopupFunc(){
     overlay.classList.add('showOverlay');
     logoutPopup.classList.add('showPopup');
-    logoutBox.removeEventListener('click',showPopupFunc)
+    logoutBox.removeEventListener('click',showPopupFunc);
+
     yes.forEach((yesBtn)=>{
         yesBtn.onclick = () =>{
-            window.location.href = '/Team-project/';
+            window.location.href = '/';
         }
     });
+
     no.forEach((noBtn)=>{
         noBtn.onclick = () =>{
             overlay.classList.remove('showOverlay');
             logoutPopup.classList.remove('showPopup');
             logoutBox.addEventListener('click', showPopupFunc);
         }
-
     });
 }
 
@@ -36,7 +39,18 @@ function showPopupFunc2(){
     deleteBox.removeEventListener('click', showPopupFunc2);
     yes.forEach((yesBtn) => {
         yesBtn.onclick = () => {
-            window.location.href = '/Team-project/';
+            let newUserData=[];
+            let CUR_USER = currentUser[0];
+            console.log(CUR_USER);
+            userData.forEach((user)=>{
+                // console.log(user.userEmail !== currentUser.userEmail, user.userEmail,currentUser.userEmail);
+                if(user.userEmail !== CUR_USER.userEmail){
+                    newUserData.push(user);
+                }
+            });
+            console.log(newUserData)
+            console.log(deleteAccount(newUserData));
+            setTimeout(()=>window.location.href = '/',500);
         }
     });
     no.forEach((noBtn) => {

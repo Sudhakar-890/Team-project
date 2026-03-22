@@ -1,4 +1,5 @@
 import { userData,saveCurrentUser } from "../../data/data.js";
+console.log(userData)
 
 document.addEventListener('DOMContentLoaded',()=>{
     console.log('loaded')
@@ -16,7 +17,11 @@ document.addEventListener('DOMContentLoaded',()=>{
         let verify = userData.filter((user) => {
             console.log(user.userEmail === emailText, user.userPassword === passwordText)
             if ((user.userEmail === emailText || user.userName === emailText) && user.userPassword === passwordText) {
-                return [emailText,passwordText];
+                return {
+                    userEmail : user.userEmail,
+                    userName : user.userName,
+                    userPassword : passwordText
+                };
             }
         })
 

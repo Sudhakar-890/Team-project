@@ -4,9 +4,14 @@ export let userData = JSON.parse(localStorage.getItem('userData'))
     userEmail : 'sudhakarsuresh4321@gmail.com',
     userName : 'sudhakar-890',
     userPassword : '123'
+},{
+    userEmail: ' ',
+    userName: 'sudhakar-890',
+    userPassword: ' '
+
 }];
 
-function saveUserData(){
+export function saveUserData(){
     localStorage.setItem('userData',JSON.stringify(userData));
     userData = JSON.parse(localStorage.getItem('userData')) || [{
         userEmail: 'sudhakarsuresh4321@gmail.com',
@@ -20,9 +25,8 @@ export function saveCurrentUser(verify){
     getCurrentUser();
 }
 
-
 // get the current user from localStorage
-export let currentUser = [];
+export let currentUser = JSON.parse(localStorage.getItem('currentUser')) || [];
 
 function getCurrentUser(){
     currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -33,5 +37,12 @@ export function saveNewUser(newUser){
     userData.push(newUser);
     saveUserData();
     saveCurrentUser(newUser);
+}
+
+export function deleteAccount(newUserData){
+    userData = newUserData;
+    saveCurrentUser([]);
+    saveUserData();
+    return userData;
 }
 
