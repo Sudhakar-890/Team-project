@@ -41,7 +41,8 @@ export function nextTurn(inc) {
     if(wonPlayers.length!==0){
         let wonIndex = wonPlayers[0];
         saveHistory(wonIndex,playerNameList[wonIndex],coinSelect,playerCount,time,date);
-        setTimeout(()=>window.location.href = 'game-lobby.html',2000);
+        console.log(wonIndex,playerNameList[wonIndex],coinSelect,playerCount,time,date)
+        setTimeout(()=>window.location.href = 'game-lobby.html',5000);
         return;
     }
 
