@@ -103,6 +103,11 @@ body{
     background: blue;
     margin-top:20px;
 }
+
+#signinBar .signinButton:active {
+      background-color: lightslategrey;
+}
+
 .ortext{
     text-align: center;
 }

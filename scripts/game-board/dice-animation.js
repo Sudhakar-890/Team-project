@@ -1,8 +1,22 @@
+import { playerNameList,playerCount } from "../../data/game-configure.js";
 import { calculateMoves } from "./game.js";
+import './game-layout.js';
+import { coinSelect, saveHistory } from "../../data/data.js";
+
+
+// dayjs to get time
+
+let today= dayjs();
+
+let time = today.format('hh:mm A');
+let date = today.format('DD/MM/YYYY');
+
+console.log(time,date);
 
 let currentPlayer = 0;
 let lastDiceValue = 0;
 
+console.log(playerNameList);
 
 export let wonPlayers = [];
 
@@ -24,10 +38,16 @@ const diceHTML = `
 renderDice();
 
 export function nextTurn(inc) {
+    if(wonPlayers.length!==0){
+        let wonIndex = wonPlayers[0];
+        saveHistory(wonIndex,playerNameList[wonIndex],coinSelect,playerCount,time,date);
+        window.location.href = '/game-lobby.html';
+        return;
+    }
 
     if (lastDiceValue !== 6 ) {
         currentPlayer=inc;
-        if (currentPlayer > 3) currentPlayer = 0;
+        if (currentPlayer > (playerCount-1)) currentPlayer = 0;
         if (wonPlayers.includes(currentPlayer)) nextTurn(currentPlayer+1);
     }
     renderDice();
