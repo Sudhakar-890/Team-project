@@ -25,7 +25,9 @@ function fetchUserDetails(user){
     hTag.innerText = user[0].userName;
 }
 
-pTag[1].onclick = () =>{
+pTag[1].onclick = changeInputBox;
+    
+function changeInputBox(){
     console.log('clicked')
     pTag[1].innerHTML = 
     `
@@ -50,6 +52,7 @@ function changePass(){
         input.value = '';
         pTag[1].innerHTML = '';
         pTag[1].innerText = 'change password';
+        pTag[1].onclick = changeInputBox
     }
     else{
         window.alert('Enter password to change');
