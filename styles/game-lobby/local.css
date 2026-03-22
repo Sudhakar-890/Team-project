@@ -1,5 +1,5 @@
 body {
-    background-image: url('/assets/images/background.png');
+    background-image: url('../../assets/back.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -23,7 +23,7 @@ body {
 }
 
 .container {
-    background-image: url('/assets/images/overall.jpg');
+    background-image: url('../../assets/overall.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

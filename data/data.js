@@ -46,3 +46,13 @@ export function deleteAccount(newUserData){
     return userData;
 }
 
+/* theme board */
+
+export let coinSelect = JSON.parse(localStorage.getItem('coinSelect')) || 0;
+
+export function changeCoinSelect(option){
+    localStorage.setItem('coinSelect',JSON.stringify(option));
+    coinSelect = JSON.parse(localStorage.getItem('coinSelect')) || 0;
+}
+
+
