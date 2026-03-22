@@ -1,4 +1,4 @@
-import { saveNewUser, userData} from "../../data/data.js";
+import { currentUser, saveCurrentUser, saveNewUser, userData} from "../../data/data.js";
 
 const userName = document.querySelector('#username');
 const userEmail = document.querySelector('#email');
@@ -27,14 +27,15 @@ function createAccount() {
 
             else {
                 if (passText1 === passText2) {
-                    let user = {
+                    let user = [{
                         userEmail: emailText,
                         userName: userNameText,
                         userPassword: passText1
-                    }
+                    }];
                     console.log(user)
+                    saveCurrentUser(user)
                     saveNewUser(user);
-                    window.location.href = '/game-lobby.html';
+                    setTimeout(()=>window.location.href = '/game-lobby.html',500);
                 }
                 else {
                     window.alert("Password doesn't match");

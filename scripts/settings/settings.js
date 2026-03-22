@@ -43,7 +43,6 @@ function showPopupFunc2(){
             let CUR_USER = currentUser[0];
             console.log(CUR_USER);
             userData.forEach((user)=>{
-                // console.log(user.userEmail !== currentUser.userEmail, user.userEmail,currentUser.userEmail);
                 if(user.userEmail !== CUR_USER.userEmail){
                     newUserData.push(user);
                 }

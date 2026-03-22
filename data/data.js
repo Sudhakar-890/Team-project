@@ -34,7 +34,7 @@ function getCurrentUser(){
 }
 
 export function saveNewUser(newUser){
-    userData.push(newUser);
+    userData.push(newUser[0]);
     saveUserData();
     saveCurrentUser(newUser);
 }

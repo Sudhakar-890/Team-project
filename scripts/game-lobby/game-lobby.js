@@ -18,7 +18,7 @@ function closeProfileBox(){
 
 
 function fetchUserDetails(user){
-    
+    console.log(user)
     pTag[0].innerText = user[0].userEmail;
 
     const hTag = document.querySelector('.profileUserBox h2');
