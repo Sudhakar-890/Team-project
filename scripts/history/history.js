@@ -25,7 +25,7 @@ function buildHistoryHtml(){
         <div class="box box-${i}">
             <div class="top">
                 <h2 class="winner">winner : ${h.name}</h2>
-                <img src="../../assets/coins/${h.coinColor}-${h.coin}.png" class="winnerCoin">
+                <img src="./assets/coins/${h.coinColor}-${h.coin}.png" class="winnerCoin">
             </div>
             <div class="bottom">
                 <h4 class="playerCount">${h.count} players</h4>
