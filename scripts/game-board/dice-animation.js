@@ -1,8 +1,11 @@
+import { playerNameList,playerCount } from "../../data/game-configure.js";
 import { calculateMoves } from "./game.js";
+import './game-layout.js';
 
 let currentPlayer = 0;
 let lastDiceValue = 0;
 
+console.log(playerNameList);
 
 export let wonPlayers = [];
 
@@ -27,7 +30,7 @@ export function nextTurn(inc) {
 
     if (lastDiceValue !== 6 ) {
         currentPlayer=inc;
-        if (currentPlayer > 3) currentPlayer = 0;
+        if (currentPlayer > (playerCount-1)) currentPlayer = 0;
         if (wonPlayers.includes(currentPlayer)) nextTurn(currentPlayer+1);
     }
     renderDice();

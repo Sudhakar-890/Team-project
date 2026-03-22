@@ -111,13 +111,13 @@ function changeName(){
 
 function prepareGame(){
 
-    let playerNameList = [];  
+    let nameList = [];  
     playerBoxes.forEach((name)=>{
-        playerNameList.push(name.innerText)
+        nameList.push(name.innerText)
     })
-    console.log(playerNameList);
+    console.log(nameList);
 
-    fetchPlayerNames(playerNameList);
+    fetchPlayerNames(nameList);
 
     setTimeout(()=>window.location.href = '/game-board.html',500);
 }
