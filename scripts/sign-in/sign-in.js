@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 
         let verify = userData.filter((user) => {
             console.log(user.userEmail === emailText, user.userPassword === passwordText)
-            if (user.userEmail === emailText && user.userPassword === passwordText) {
+            if ((user.userEmail === emailText || user.userName === emailText) && user.userPassword === passwordText) {
                 return [emailText,passwordText];
             }
         })
