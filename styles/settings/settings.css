@@ -16,6 +16,7 @@ body{
     background-color: rgba(36, 38, 58, 0.148);
     position: absolute;
     top:0;
+    min-height:100%;
     bottom:0;
     right:0;
     left:0;
@@ -57,6 +58,7 @@ body{
     height:max-content;
     overflow-y:scroll;
     padding-bottom:40px;
+    position:relative;
 }
 
 .division1, .division2, .division3{
@@ -131,6 +133,6 @@ body{
     color:rgb(252, 211, 136);
 }
 
-.boxes:last-child{
+.deleteBox{
     background-color: brown;
 }
