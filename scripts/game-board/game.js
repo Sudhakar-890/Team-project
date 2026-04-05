@@ -144,7 +144,7 @@ async function moveCoin(playerIndex, coinIndex, diceValue) {
         if (temp === playerHome + 1) {
 
             let remainingSteps = diceValue - i;
-
+    
             if (remainingSteps === 0) {
                 const targetBox = document.querySelector(`.h${playerIndex + 1}-Index-1`);
                 targetBox.appendChild(coin);
@@ -229,7 +229,8 @@ function checkAttack(playerIndex, boxIndex){
         setTimeout(()=>{
             sheild.style.opacity = '0%';
             setTimeout(() => sheild.remove(),300);
-        },1500)
+        },1500);
+        return false;
     }
  
     let AboolCheck = false;
